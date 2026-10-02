@@ -7,6 +7,7 @@ import org.bukkit.inventory.ItemStack;
 import tech.komutech.KT;
 import tech.komutech.behavior.BlockDrops;
 import tech.komutech.listeners.SingleItemRecipeGuideListener;
+import tech.komutech.listeners.XuanTiePortalListener;
 import tech.komutech.native_scripts.NativeScriptRegistry;
 import tech.komutech.native_scripts.support.KomutechAdminPassword;
 
@@ -55,6 +56,10 @@ public final class Setup {
         // 打开配方展示界面。该类在构造函数里自行 registerEvents，因此只需实例化一次。
         // 漏掉这行 = 按钮点击毫无反应（重构时整块缺失，是「多物品输入界面打不开」的根因）。
         new SingleItemRecipeGuideListener();
+        // 玄铁镐挖掘下界传送门：传送门硬度 -1，生存模式原版不发起破坏，
+        // 该监听器用 Player#breakBlock 以玩家身份走完整流程，好让 drop_from: nether_portal
+        // 掉落生效。同样在构造函数里自注册，只需实例化。
+        new XuanTiePortalListener();
         // 加载期缓存释放：解析树、头颅贴图、展示堆表（运行期均不再访问）
         Yaml.clearCache();
         Read.clearSkinCache();

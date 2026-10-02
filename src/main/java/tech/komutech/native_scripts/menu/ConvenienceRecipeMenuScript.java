@@ -43,6 +43,16 @@ public final class ConvenienceRecipeMenuScript implements NativeLifecycleScript,
    };
    private static final NamespacedKey MACHINE_KEY = new NamespacedKey("komutech_l_bxpf", "machine");
    private static final Pattern CHINESE = Pattern.compile("[\\u4e00-\\u9fff\\u3400-\\u4dbf]+");
+   /**
+    * 分类定义。
+    *
+    * <p>manual 列表必须与原版 {@code addon/scripts/L-菜单/口木科技便捷配方.js} 逐条一致。
+    * 迁移到 Java 时曾被压缩到3 条，导致「基础物品」分类只显示 3 个产物且分页信息全无。
+    * 这类「一芥乾坤」产物无法从机器 recipes 自动推导（同一产物可由不同品级机器产出，
+    * 且内容包中部分条目是隐藏占位），只能靠 manual 显式列出。
+    *
+    * <p>已用脚本核对：本列表中全部 38 条引用的物品 id 在 content/ 中均存在。
+    */
    private static final List<ConvenienceRecipeMenuScript.Category> CATEGORIES = List.of(
       new ConvenienceRecipeMenuScript.Category(
          "jcwp",
@@ -51,8 +61,41 @@ public final class ConvenienceRecipeMenuScript implements NativeLifecycleScript,
          List.of("KOMUTECH_L_JQ_下品一芥乾坤"),
          List.of(
             new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_YGZZ", "KOMUTECH_L_JQ_下品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_YGZZ", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_YGZZ", "KOMUTECH_L_JQ_上品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_TSSM", "KOMUTECH_L_JQ_下品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_TSSM", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_TSSM", "KOMUTECH_L_JQ_上品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_SSSM", "KOMUTECH_L_JQ_下品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_SSSM", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_SSSM", "KOMUTECH_L_JQ_上品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_MHZZ", "KOMUTECH_L_JQ_下品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_MHZZ", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_MHZZ", "KOMUTECH_L_JQ_上品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_MZZ", "KOMUTECH_L_JQ_下品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_MZZ", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZZZ_MZZ", "KOMUTECH_L_JQ_上品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_JCWP_TM", "KOMUTECH_L_JQ_下品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_JCWP_TM", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_JCWP_TM", "KOMUTECH_L_JQ_上品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZ_YG", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZ_YG", "KOMUTECH_L_JQ_上品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZ_SM", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZ_SM", "KOMUTECH_L_JQ_上品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZ_MH", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZ_MH", "KOMUTECH_L_JQ_上品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZ_M", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_LZ_M", "KOMUTECH_L_JQ_上品一芥乾坤"),
             new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_DJ_XPLJ", "KOMUTECH_L_JQ_下品一芥乾坤"),
-            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_DJ_ZPLJ", "KOMUTECH_L_JQ_中品一芥乾坤")
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_DJ_XPLJ", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_DJ_XPLJ", "KOMUTECH_L_JQ_上品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_DJ_ZPLJ", "KOMUTECH_L_JQ_下品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_DJ_ZPLJ", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_DJ_ZPLJ", "KOMUTECH_L_JQ_上品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_DJ_SPLJ", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_DJ_SPLJ", "KOMUTECH_L_JQ_上品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_DJ_JPLJ", "KOMUTECH_L_JQ_中品一芥乾坤"),
+            new ConvenienceRecipeMenuScript.ManualEntry("KOMUTECH_L_DJ_JPLJ", "KOMUTECH_L_JQ_上品一芥乾坤")
          )
       ),
       new ConvenienceRecipeMenuScript.Category("fz", "§b法则", Material.ENCHANTED_BOOK, List.of("KOMUTECH_L_PF_法则合成演示"), List.of()),
@@ -179,7 +222,7 @@ public final class ConvenienceRecipeMenuScript implements NativeLifecycleScript,
       this.ensureCache();
       Inventory var2 = MenuGuiHelper.create(54, "§6口木科技便捷配方");
       MenuGuiHelper.applyBorder(var2, BORDER);
-      var2.setItem(4, MenuGuiHelper.item(Material.PAINTING, "§6口木科技便捷配方", List.of("§7点击分类查看产物")));
+      var2.setItem(4, MenuGuiHelper.item(Material.PAINTING, "§6口木科技便捷配方", List.of("§7点击分类查看产物", "§7或使用右下角搜索")));
 
       for (int var3 = 0; var3 < CATEGORIES.size(); var3++) {
          ConvenienceRecipeMenuScript.Category var4 = CATEGORIES.get(var3);
@@ -234,15 +277,19 @@ public final class ConvenienceRecipeMenuScript implements NativeLifecycleScript,
             }
 
             if (var3 > 1) {
-               var8.setItem(48, MenuGuiHelper.item(Material.ARROW, "§a上一页", List.of()));
+               var8.setItem(48, MenuGuiHelper.item(Material.ARROW, "§a上一页", List.of("§7第 " + (var3 - 1) + " 页")));
+            } else {
+               var8.setItem(48, MenuGuiHelper.item(Material.LIGHT_GRAY_STAINED_GLASS_PANE, " ", List.of()));
             }
 
             var8.setItem(49, MenuGuiHelper.item(Material.ARROW, "§a返回", List.of("§7返回主菜单")));
             if (var3 < var6) {
-               var8.setItem(50, MenuGuiHelper.item(Material.ARROW, "§a下一页", List.of()));
+               var8.setItem(50, MenuGuiHelper.item(Material.ARROW, "§a下一页", List.of("§7第 " + (var3 + 1) + " 页")));
+            } else {
+               var8.setItem(50, MenuGuiHelper.item(Material.LIGHT_GRAY_STAINED_GLASS_PANE, " ", List.of()));
             }
 
-            var8.setItem(53, MenuGuiHelper.item(Material.COMPASS, "§e\ud83d\udd0d 搜索", List.of()));
+            var8.setItem(53, MenuGuiHelper.item(Material.COMPASS, "§e\ud83d\udd0d 搜索", List.of("§7点击后在聊天栏输入物品名")));
             var1.openInventory(var8);
             this.openPlayers.put(var1, new ConvenienceRecipeMenuScript.MenuState(var2, var3));
          }
@@ -340,6 +387,8 @@ public final class ConvenienceRecipeMenuScript implements NativeLifecycleScript,
             }
          }
       } else {
+         // 非 AContainer：MultiBlockMachine 这类只有 getRecipes()（返回 ItemStack[]，单个产物），
+         // 沿用原版 .js 的两级兜底顺序：先试 getMachineRecipes()，为空再试 getRecipes()。
          try {
             if (var2.getClass().getMethod("getMachineRecipes").invoke(var2) instanceof Iterable var10) {
                for (Object var11 : var10) {
@@ -349,7 +398,23 @@ public final class ConvenienceRecipeMenuScript implements NativeLifecycleScript,
                }
             }
          } catch (ReflectiveOperationException var13) {
-            // 该机器类型不暴露机器配方（如 MultiBlockMachine），静默跳过
+            // 该类型没有 getMachineRecipes，转试 getRecipes()
+         }
+
+         if (var1.isEmpty()) {
+            try {
+               if (var2.getClass().getMethod("getRecipes").invoke(var2) instanceof List var14) {
+                  for (Object var15 : var14) {
+                     if (var15 instanceof ItemStack[] var16) {
+                        addItems(var16, var1);
+                     } else {
+                        addItem((ItemStack)var15, var1);
+                     }
+                  }
+               }
+            } catch (ReflectiveOperationException | ClassCastException var17) {
+               // 两种取法都不适用（既非 AContainer 也非 MultiBlockMachine），静默跳过
+            }
          }
       }
 
