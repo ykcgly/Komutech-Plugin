@@ -32,6 +32,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataHolder;
 import org.bukkit.persistence.PersistentDataType;
 import tech.komutech.KT;
+import tech.komutech.native_scripts.support.JegBridge;
 import tech.komutech.util.colors.CMIChatColor;
 import tech.komutech.objects.customs.CustomMenu;
 import tech.komutech.objects.customs.LinkedOutput;
@@ -103,8 +104,22 @@ public class SingleItemRecipeGuideListener implements Listener {
       return var0;
    }
 
+   /**
+    * 材料/产物槽位的统一点击处理：打开该物品的配方展示页。
+    *
+    * <p><b>JEG 兼容</b>：原实现直接 {@code new SurvivalSlimefunGuide(...)}，
+    * 而 {@code SurvivalSlimefunGuide} 是Slimefun 的硬编码原生实现——字节码里
+    * 没有任何「查当前生效指南实现」的分支，所以装了 JEG 也只会弹出 Slimefun 原生界面。
+    * 现改为先经 {@link JegBridge} 取玩家当前生效的指南实现（装了 JEG 就是 JEG），
+    * 拿不到才回退原生。没装 JEG 的服务器行为与改动前完全一致。
+    */
    public static boolean viewItem(Player var0, int var1, ItemStack var2, ClickAction var3) {
-      new SurvivalSlimefunGuide(false, false).displayItem((PlayerProfile)PlayerProfile.find(var0).get(), var2, 0, true);
+      if (JegBridge.displayItem(var0, var2)) {
+         return false;
+      }
+
+      // 回退原生：与改动前一致
+      PlayerProfile.find(var0).ifPresent(var4 -> new SurvivalSlimefunGuide(false, false).displayItem(var4, var2, 0, true));
       return false;
    }
 
@@ -209,12 +224,15 @@ public class SingleItemRecipeGuideListener implements Listener {
                var5.ifPresent(
                   var2x -> this.addItem(
                      0, ChestMenuUtils.getBackButton(var2, new String[]{"", "&f左键: &7返回上一页", "&fShift + 左键: &7返回主菜单"}), (var1xx, var2xx, var3x, var4x) -> {
-                        SurvivalSlimefunGuide var5x = new SurvivalSlimefunGuide(false, false);
-                        GuideHistory var6x = var2x.getGuideHistory();
-                        if (var4x.isShiftClicked()) {
-                           var5x.openMainMenu(var2x, var6x.getMainMenuPage());
-                        } else {
-                           var6x.goBack(var5x);
+                        // 返回按钮同样要走当前生效的指南实现（JEG），否则会被丢回原生界面
+                        if (!JegBridge.back(var2x, var2x.getPlayer(), var4x.isShiftClicked())) {
+                           SurvivalSlimefunGuide var5x = new SurvivalSlimefunGuide(false, false);
+                           GuideHistory var6x = var2x.getGuideHistory();
+                           if (var4x.isShiftClicked()) {
+                              var5x.openMainMenu(var2x, var6x.getMainMenuPage());
+                           } else {
+                              var6x.goBack(var5x);
+                           }
                         }
 
                         return false;
@@ -371,12 +389,15 @@ public class SingleItemRecipeGuideListener implements Listener {
                var5.ifPresent(
                   var2x -> this.addItem(
                      0, ChestMenuUtils.getBackButton(var2, new String[]{"", "&f左键: &7返回上一页", "&fShift + 左键: &7返回主菜单"}), (var1xx, var2xx, var3x, var4x) -> {
-                        SurvivalSlimefunGuide var5x = new SurvivalSlimefunGuide(false, false);
-                        GuideHistory var6x = var2x.getGuideHistory();
-                        if (var4x.isShiftClicked()) {
-                           var5x.openMainMenu(var2x, var6x.getMainMenuPage());
-                        } else {
-                           var6x.goBack(var5x);
+                        // 返回按钮同样要走当前生效的指南实现（JEG），否则会被丢回原生界面
+                        if (!JegBridge.back(var2x, var2x.getPlayer(), var4x.isShiftClicked())) {
+                           SurvivalSlimefunGuide var5x = new SurvivalSlimefunGuide(false, false);
+                           GuideHistory var6x = var2x.getGuideHistory();
+                           if (var4x.isShiftClicked()) {
+                              var5x.openMainMenu(var2x, var6x.getMainMenuPage());
+                           } else {
+                              var6x.goBack(var5x);
+                           }
                         }
 
                         return false;

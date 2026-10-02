@@ -44,6 +44,31 @@ public class AdvancedNestedItemGroup extends NestedItemGroup {
       this.subGroups.remove(var1);
    }
 
+   /**
+    * 画菜单顶部栏（返回按钮 + 翻页 + 关闭等）。
+    *
+    * <p>{@code createHeader} 不在 {@link SlimefunGuideImplementation} 接口上，
+    * 只存在于 {@code SurvivalSlimefunGuide} / {@code CheatSheetSlimefunGuide}
+    * 与 JEG 的 {@code JEGSlimefunGuideImplementation}。这里按「当前生效实现 → 原生」顺序
+    * 反射查找，找不到就跳过（只是少一个返回按钮，不影响菜单其余功能）。
+    */
+   private void createHeader(Player var1, PlayerProfile var2, SlimefunGuideMode var3, ChestMenu var4) {
+      Object var5 = Slimefun.getRegistry().getSlimefunGuide(var3);
+      if (var5 != null) {
+         try {
+            var5.getClass()
+               .getMethod("createHeader", Player.class, PlayerProfile.class, ChestMenu.class)
+               .invoke(var5, var1, var2, var4);
+            return;
+         } catch (ReflectiveOperationException | RuntimeException var6) {
+            ExceptionHandler.handleWarning("嵌套物品组顶部栏渲染失败（当前指南实现: "
+               + var5.getClass().getSimpleName() + "），已回退原生实现");
+         }
+      }
+
+      new SurvivalSlimefunGuide(false, false).createHeader(var1, var2, var4);
+   }
+
    private void setup(Player var1, PlayerProfile var2, SlimefunGuideMode var3, int var4) {
       GuideHistory var5 = var2.getGuideHistory();
       if (var3 == SlimefunGuideMode.SURVIVAL_MODE) {
@@ -51,11 +76,16 @@ public class AdvancedNestedItemGroup extends NestedItemGroup {
       }
 
       ChestMenu var6 = new ChestMenu(Slimefun.getLocalization().getMessage(var1, "guide.title.main"));
-      SurvivalSlimefunGuide var7 = (SurvivalSlimefunGuide)Slimefun.getRegistry().getSlimefunGuide(var3);
+      // 不能强转成 SurvivalSlimefunGuide：装了 JEG 后 getSlimefunGuide 返回的是
+      // JEG 自己的实现，强转会抛 ClassCastException 导致嵌套物品组打不开。
+      //
+      // createHeader 不在 SlimefunGuideImplementation 接口上，只在 Survival/CheatSheet 两个
+      // 原生实现与 JEG 的 JEGSlimefunGuideImplementation 上，故用反射调用：
+      // 有则用当前生效实现（JEG 界面），无则回退 SurvivalSlimefunGuide。
+      this.createHeader(var1, var2, var3, var6);
       var6.setEmptySlotsClickable(false);
       SoundEffect var8 = SoundEffect.GUIDE_BUTTON_CLICK_SOUND;
       var6.addMenuOpeningHandler(var1x -> var8.playFor(var1x));
-      var7.createHeader(var1, var2, var6);
       var6.addItem(
          1,
          new CustomItemStack(
