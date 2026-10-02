@@ -12,7 +12,7 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 import tech.komutech.KT;
-import tech.komutech.objects.slimefun.AdvancedNestedItemGroup;
+import tech.komutech.objects.slimefun.KomutechNestedGroups;
 import tech.komutech.objects.slimefun.ItemGroupButton;
 
 /**
@@ -21,12 +21,15 @@ import tech.komutech.objects.slimefun.ItemGroupButton;
  * <p>先注册 nested 根组再注册子组（SubItemGroup 构造需要父 NestedItemGroup）。
  * 逐条 try/catch 故障隔离：单条坏数据只跳过该组，不会连累后续全部物品。
  *
- * <p><b>按钮组必须用 {@link AdvancedNestedItemGroup} 作父组</b>：原实现里
- * {@code createButtonGroup} 要求父组 {@code instanceof AdvancedNestedItemGroup}，否则报错并返回
- * null（按钮组整条丢失）。AdvancedNestedItemGroup 覆写了 {@code setup}，点击子组时会先判断
- * {@code instanceof ItemGroupButton} 并执行其 {@code actions}（link / console /
- * open_itemgroup / display_slimefunitem / script），而不是打开空物品组。
- * 本服 groups.yml 共 37 个 button 组，因此根组必须用它，不能用原生 NestedItemGroup。
+ * <p><b>根组必须用 {@link KomutechNestedGroups#create} 工厂创建</b>：它产出的是
+ * {@code NestedItemGroup} 的<b>匿名直接子类</b>，这是 JEG 接管嵌套组渲染的前提
+ * （JEG 判定条件为「恰好是 NestedItemGroup 本身，或其匿名直接子类」，
+ * 具名子类会被当普通分组渲染成近乎空白页）。
+ *
+ * <p>按钮组（{@code type: button}）要求父组是 {@code NestedItemGroup}，
+ * 点击时先判断 {@code instanceof ItemGroupButton} 并执行其 {@code actions}
+ * （link / console / open_itemgroup / display_slimefunitem / script），
+ * 而不是打开空物品组。本服 groups.yml 共 37 个 button 组，判定不可放宽。
  */
 public final class GroupLoader {
 
@@ -46,7 +49,10 @@ public final class GroupLoader {
                         KT.log("groups " + key + ": 无展示物品");
                         continue;
                     }
-                    AdvancedNestedItemGroup g = new AdvancedNestedItemGroup(nsKey(key), display, s.getInt("tier", 3));
+                    // 必须用工厂的匿名直接子类：JEG 只接管「恰好是 NestedItemGroup
+                    // 或其匿名直接子类」的分组，具名子类会被当普通分组渲染成近乎空白页
+                    // （判定逻辑见 JEGSlimefunGuideImplementation#openItemGroup 字节码）。
+                    NestedItemGroup g = KomutechNestedGroups.create(nsKey(key), display, s.getInt("tier", 3));
                     g.register(KT.plugin);
                     KT.groups.put(key.toLowerCase(Locale.ROOT), g);
                 }
@@ -94,9 +100,12 @@ public final class GroupLoader {
                 break;
             }
             case "button": {
-                // 父组必须是 AdvancedNestedItemGroup，否则按钮的 actions 永远不会被执行
-                if (parent instanceof AdvancedNestedItemGroup advanced) {
-                    ItemGroupButton g = new ItemGroupButton(nsKey(key), advanced, display, tier,
+                // 父组必须是 NestedItemGroup，否则按钮的 actions 永远不会被执行。
+                // 本附属的根组全部由 KomutechNestedGroups 工厂创建（是 NestedItemGroup 的
+                // 匿名直接子类，JEG 才能接管渲染），故此处直接判 NestedItemGroup。
+                // 注意：不能用 instanceof AdvancedNestedItemGroup —— 工厂产出的是匿名子类。
+                if (parent instanceof NestedItemGroup nested) {
+                    ItemGroupButton g = new ItemGroupButton(nsKey(key), nested, display, tier,
                         s.getStringList("actions"));
                     g.register(KT.plugin);
                     KT.groups.put(key.toLowerCase(Locale.ROOT), g);
