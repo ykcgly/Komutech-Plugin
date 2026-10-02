@@ -21,9 +21,8 @@
 | 类型 | 插件 |
 |------|------|
 | **必需** | [Slimefun](https://github.com/Slimefun/Slimefun4) |
-| **必需** | [GuizhanLibPlugin](https://github.com/ybw0014/GuizhanLibPlugin) |
-| **必需** | [RykenSlimefunCustomizer](https://builds.guizhanss.com/SlimefunReloadingProject/RykenSlimeCustomizer/main) |
-| **可选** | [NetworkTechnology](https://github.com/balugaq/NetworkTechnology)（用于材质网桥相关物品） |
+| **必需** | [GuizhanLibPlugin-鬼斩lib](https://builds.guizhanss.com/ybw0014/GuizhanLibPlugin/master) |
+| **可选** | [NetworksExpansion-网络扩展](https://builds.guizhanss.com/ytdd9527/NetworksExpansion/master)（用于材质网桥相关物品） |
 
 ---
 
