@@ -139,7 +139,7 @@ Komutech_XZLJ:
   parent: Komutech
   tier: 13
   actions:
-  - "link https://github.com/KomuAaA/Komutech"
+  - "link https://github.com/ykcgly/Komutech-Plugin"
 Komutech_L_JCWP:
   lateInit: false
   type: sub

@@ -12,6 +12,9 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 import tech.komutech.KT;
 import tech.komutech.behavior.BlockDrops;
+import tech.komutech.objects.customs.item.CustomDefaultItem;
+import tech.komutech.objects.customs.item.CustomUnplaceableItem;
+import tech.komutech.script.ScriptEval;
 
 /**
  * 加载普通物品（items.yml）。
@@ -87,7 +90,20 @@ public final class ItemsLoader {
         RecipeType rt = RecipeTypes.resolve(rtName);
         ItemStack[] recipe = Read.recipe(s.getConfigurationSection("recipe"), size);
 
-        SlimefunItem item = new SlimefunItem(g, sfis, rt, recipe);
+        // 行为脚本：items.yml 里 63 个条目带 script 字段（灵杖、卷轴、道具、工具、符等）。
+        // 必须经 ScriptLoader 包成 ScriptEval 并交给 Custom*Item —— 这些类在构造时
+        // doInit() 触发生命周期注册、addItemHandler 接管右键/攻击/工具使用。
+        // 若漏掉这一步（早期版本直接 new SlimefunItem），物品仍能合成和显示，但右键完全无反应。
+        ScriptEval eval = ScriptLoader.load(s.getString("script"), "物品", id);
+
+        SlimefunItem item;
+        if (s.getBoolean("placeable", false)) {
+            // 可放置物品：原版此分支不挂脚本（脚本由机器类承载），保持一致
+            item = new CustomDefaultItem(g, sfis, rt, recipe, sfis);
+        } else {
+            item = new CustomUnplaceableItem(g, sfis, rt, recipe, eval, sfis);
+        }
+
         if (s.getBoolean("hidden", false)) item.setHidden(true);
         if (s.getBoolean("vanilla", false)) item.setUseableInWorkbench(true);
         item.register(KT.plugin);

@@ -54,6 +54,9 @@ public class CustomMultiBlockMachine extends MultiBlockMachine {
          this.addRecipe((ItemStack[])var9.getKey(), (ItemStack)var9.getValue());
       }
 
+      // 无需自行注册 ItemUseHandler：MultiBlockMachine.register() 内部会
+      // addItemHandler(getInteractionHandler())，由该 handler 转调本类的 onInteract。
+      // 额外注册反而会让右键事件被处理两次。
       this.register(KT.plugin());
    }
 

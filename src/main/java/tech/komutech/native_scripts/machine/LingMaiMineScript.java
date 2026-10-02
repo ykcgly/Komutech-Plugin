@@ -108,12 +108,14 @@ public final class LingMaiMineScript implements NativeScript, NativeLifecycleScr
    private void handleClick(Player var1, int var2, Object var3) {
       if (this.checkCooldown(var1)) {
          if (var2 == 40) {
+            // 右键 = 一键挖掘（消耗下界合金镐耐久）
             if (KomutechSupport.isRightClick(var3) && !KomutechSupport.isShiftClick(var3)) {
                this.autoMine(var1);
                return;
             }
 
-            if (KomutechSupport.isShiftClick(var3) && !KomutechSupport.isRightClick(var3)) {
+            // 左键 = 重置石头（原为 shift+左键，现按反馈改为普通左键）
+            if (!KomutechSupport.isRightClick(var3) && !KomutechSupport.isShiftClick(var3)) {
                this.refill(var1);
                return;
             }
@@ -125,11 +127,17 @@ public final class LingMaiMineScript implements NativeScript, NativeLifecycleScr
       }
    }
 
+   /**
+    * 防连点冷却。
+    *
+    * <p>原实现命中时向玩家发「操作太频繁，请稍后再试」，实测把正常操作也一并拦掉了
+    * （石头是一格格点的，连续开采必然触发），体验很差。现改为<b>静默丢弃</b>：
+    * 冷却窗口内直接忽略该次点击，不给任何提示，也不影响后续操作。
+    */
    private boolean checkCooldown(Player var1) {
       long var2 = System.currentTimeMillis();
       Long var4 = this.cooldowns.get(var1.getUniqueId());
-      if (var4 != null && var2 - var4 < 500L) {
-         KomutechSupport.send(var1, "&c操作太频繁，请稍后再试");
+      if (var4 != null && var2 - var4 < COOLDOWN_MS) {
          return false;
       } else {
          this.cooldowns.put(var1.getUniqueId(), var2);

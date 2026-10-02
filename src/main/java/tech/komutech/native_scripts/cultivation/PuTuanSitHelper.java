@@ -25,9 +25,12 @@ final class PuTuanSitHelper {
    private static final String GSIT_STOP_REASON = "dev.geco.gsit.model.StopReason";
    /**
     * 玩家坐姿的目标高度（相对方块底部）。
-    * 1.0 = 方块顶面（脚在方块上方），实测观感偏高，用户要求降低 0.5 格 → 0.5。
+    * 1.0 = 方块顶面（脚在方块上方）。曾按「坐得靠下」调至 0.5，后按实测反馈再提高 0.5 格 → 1.0。
+    *
+    * <p>调整此值时的注意点：alignSeat 的闭环阈值是 0.02，SEAT_MIN/MAX_RELATIVE_Y 钳制在 ±1.5，
+    * 目标高度落在钳制范围内，闭环能正常收敛。
     */
-   private static final double SEAT_SURFACE_OFFSET = 0.5;
+   private static final double SEAT_SURFACE_OFFSET = 1.0;
    /**
     * 玩家骑乘盔甲架时游戏自动附加的高度偏移。
     * 只在闭环已经收敛（玩家已处于目标高度）时才采样，因此这个值始终可信；
