@@ -1,13 +1,12 @@
 package tech.komutech.native_scripts.support;
 
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Objects;
-import java.util.Map.Entry;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
@@ -15,89 +14,73 @@ public final class KomutechConfigMerge {
    private KomutechConfigMerge() {
    }
 
-   public static Map<String, Object> loadMerged(Path var0, String var1) {
-      Map var2 = readDisk(var0);
-      Map var3 = readClasspath(var1);
-      if (var3.isEmpty()) {
-         return var2;
-      } else {
-         KomutechConfigMerge.MergeResult var4 = merge(var2, var3);
-         if (var4.changed) {
-            try {
-               Path var5 = var0.getParent();
-               if (var5 != null) {
-                  Files.createDirectories(var5);
-               }
-
-               Files.writeString(var0, KomutechJson.stringify(var4.map), StandardCharsets.UTF_8);
-            } catch (Exception var6) {
-            }
-         }
-
-         return var4.map;
-      }
-   }
-
-   private static KomutechConfigMerge.MergeResult merge(Map<String, Object> var0, Map<String, Object> var1) {
-      LinkedHashMap var2 = new LinkedHashMap(var0);
-      boolean var3 = false;
-
-      for (Entry var5 : var1.entrySet()) {
-         String var6 = (String)var5.getKey();
-         Object var7 = var5.getValue();
-         Object var8 = var2.get(var6);
-         if (var8 == null) {
-            var2.put(var6, var7);
-            var3 = true;
-         } else if (var7 instanceof Map var9 && var8 instanceof Map) {
-            Map var10 = KomutechJson.asMap(var8);
-            Map var11 = KomutechJson.asMap(var9);
-            KomutechConfigMerge.MergeResult var12 = merge(var10, var11);
-            var2.put(var6, var12.map);
-            var3 = var3 || var12.changed;
-         } else if (!Objects.equals(String.valueOf(var8), String.valueOf(var7))) {
-            var2.put(var6, var7);
-            var3 = true;
-         }
+   /**
+    * 确保磁盘上的数值配置文件存在，缺失时从 jar 内模板释放一份。
+    *
+    * <p><b>为什么不能是「合并」语义</b>：早期版本名为 {@code loadMerged}，会在磁盘值与 jar 默认值
+    * 不同时<b>用 jar 值覆盖磁盘值</b>。对数值配置（卷轴伤害、灵杖消耗、修炼速度）而言这是灾难性的
+    * ——服主在 {@code plugins/Komutech/} 调好的参数会在下次读取时被默认值悄悄改回去。
+    * 因此这里只做「缺失才释放」：磁盘文件一旦存在就<b>永不改动</b>，服主改动始终优先。
+    *
+    * @param diskPath       磁盘目标路径（通常在 {@code plugins/Komutech/} 下）
+    * @param resourceName   jar 内模板资源名（jar 根目录，如 {@code 卷轴属性.json}）
+    * @return 磁盘配置内容；文件不存在且模板也缺失时返回空 Map
+    */
+   public static Map<String, Object> ensureTemplate(Path diskPath, String resourceName) {
+      Map<String, Object> disk = readDisk(diskPath);
+      // 磁盘已有内容（哪怕解析出空对象）即视为服主已配置，绝不覆盖
+      if (diskPath != null && Files.exists(diskPath)) {
+         return disk;
       }
 
-      return new KomutechConfigMerge.MergeResult(var2, var3);
-   }
+      Map<String, Object> template = readClasspath(resourceName);
+      if (template.isEmpty() || diskPath == null) {
+         return disk;
+      }
 
-   private static Map<String, Object> readDisk(Path var0) {
       try {
-         if (var0 != null && Files.exists(var0)) {
-            return KomutechJson.asMap(KomutechJson.parse(Files.readString(var0, StandardCharsets.UTF_8)));
+         Path parent = diskPath.getParent();
+         if (parent != null) {
+            Files.createDirectories(parent);
          }
-      } catch (Exception var2) {
+
+         try (OutputStream out = Files.newOutputStream(diskPath)) {
+            out.write(KomutechJson.stringify(template).getBytes(StandardCharsets.UTF_8));
+         }
+
+         Bukkit.getLogger().info("[口木科技] 已生成配置: " + diskPath);
+      } catch (Exception e) {
+         Bukkit.getLogger().warning("[口木科技] 释放配置失败 " + diskPath + ": " + e);
+      }
+
+      return template;
+   }
+
+   private static Map<String, Object> readDisk(Path path) {
+      try {
+         if (path != null && Files.exists(path)) {
+            return KomutechJson.asMap(KomutechJson.parse(Files.readString(path, StandardCharsets.UTF_8)));
+         }
+      } catch (Exception ignored) {
       }
 
       return new LinkedHashMap<>();
    }
 
-   private static Map<String, Object> readClasspath(String var0) {
-      Plugin var1 = Bukkit.getPluginManager().getPlugin("Komutech");
-      if (var1 != null && var0 != null && !var0.isBlank()) {
-         try {
-            Map var4;
-            try (InputStream var2 = var1.getResource(var0)) {
-               if (var2 == null) {
-                  return new LinkedHashMap<>();
-               }
-
-               String var3 = new String(var2.readAllBytes(), StandardCharsets.UTF_8);
-               var4 = KomutechJson.asMap(KomutechJson.parse(var3));
-            }
-
-            return var4;
-         } catch (Exception var7) {
-            return new LinkedHashMap<>();
-         }
-      } else {
+   private static Map<String, Object> readClasspath(String resourceName) {
+      Plugin plugin = Bukkit.getPluginManager().getPlugin("Komutech");
+      if (plugin == null || resourceName == null || resourceName.isBlank()) {
          return new LinkedHashMap<>();
       }
-   }
 
-   private record MergeResult(Map<String, Object> map, boolean changed) {
+      try (InputStream in = plugin.getResource(resourceName)) {
+         if (in == null) {
+            return new LinkedHashMap<>();
+         }
+
+         return KomutechJson.asMap(KomutechJson.parse(new String(in.readAllBytes(), StandardCharsets.UTF_8)));
+      } catch (Exception e) {
+         return new LinkedHashMap<>();
+      }
    }
 }

@@ -597,7 +597,7 @@ public final class ScrollCombatEngine {
 
    private static void reloadScrollConfig() {
       Path var0 = scrollConfigPath();
-      scrollConfig = KomutechConfigMerge.loadMerged(var0, "addon_configs/Komutech/卷轴属性.json");
+      scrollConfig = KomutechConfigMerge.ensureTemplate(var0, "卷轴属性.json");
       scrollConfigMtime = fileMtime(var0);
    }
 
@@ -611,7 +611,7 @@ public final class ScrollCombatEngine {
 
    private static void reloadStaffConfig() {
       Path var0 = staffConfigPath();
-      staffConfig = KomutechConfigMerge.loadMerged(var0, "addon_configs/Komutech/灵杖属性.json");
+      staffConfig = KomutechConfigMerge.ensureTemplate(var0, "灵杖属性.json");
       staffConfigMtime = fileMtime(var0);
    }
 

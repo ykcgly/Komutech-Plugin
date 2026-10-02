@@ -1,8 +1,6 @@
 package tech.komutech.native_scripts.cultivation;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -50,6 +48,7 @@ import tech.komutech.native_scripts.support.AttributeApplier;
 import tech.komutech.native_scripts.support.AttributePointLimits;
 import tech.komutech.native_scripts.support.CultivationMath;
 import tech.komutech.native_scripts.support.DisplayReflectionHelper;
+import tech.komutech.native_scripts.support.KomutechConfigMerge;
 import tech.komutech.native_scripts.support.KomutechJson;
 import tech.komutech.native_scripts.support.KomutechMenuHandler;
 import tech.komutech.native_scripts.support.KomutechMenuRouter;
@@ -853,10 +852,10 @@ public final class PuTuanScript implements NativeLifecycleScript, KomutechMenuHa
          return cachedPuTuanConfig;
       } else {
          try {
-            if (!Files.exists(KomutechPaths.puTuanConfig())) {
+            // 缺失时从 jar 内 蒲团配置.json 模板释放一份到 plugins/Komutech/，服主可直接改
+            cachedPuTuanConfig = KomutechConfigMerge.ensureTemplate(KomutechPaths.puTuanConfig(), "蒲团配置.json");
+            if (cachedPuTuanConfig.isEmpty()) {
                cachedPuTuanConfig = Map.of();
-            } else {
-               cachedPuTuanConfig = KomutechJson.asMap(KomutechJson.parse(Files.readString(KomutechPaths.puTuanConfig(), StandardCharsets.UTF_8)));
             }
          } catch (Exception var3) {
             cachedPuTuanConfig = Map.of();

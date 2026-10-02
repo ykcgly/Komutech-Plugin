@@ -138,14 +138,15 @@ public final class AttributePointLimits {
       long var0 = System.currentTimeMillis();
       if (var0 - cachedAt >= 60000L || cachedLimits == null) {
          try {
-            if (!Files.exists(KomutechPaths.attributePointLimits())) {
+            // 缺失时从 jar 内 属性加点限制.json 模板释放一份到 plugins/Komutech/，服主可直接改
+            Map var2 = KomutechConfigMerge.ensureTemplate(KomutechPaths.attributePointLimits(), "属性加点限制.json");
+            if (var2.isEmpty()) {
                cachedLimits = DEFAULTS;
                cachedSpiritGainHuaShenCap = 2000.0;
                cachedHealthBase = 1000.0;
                cachedHealthStep = 1000.0;
                cachedHealthMax = 5000.0;
             } else {
-               Map var2 = KomutechJson.asMap(KomutechJson.parse(Files.readString(KomutechPaths.attributePointLimits(), StandardCharsets.UTF_8)));
                cachedLimits = Map.of(
                   "血量",
                   readLimit(var2, "血量", DEFAULTS.get("血量")),

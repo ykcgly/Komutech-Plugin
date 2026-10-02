@@ -325,7 +325,7 @@ public final class YunZhuanXiaScript implements NativeLifecycleScript, KomutechM
       }
 
       if (this.scrollConfig == null || var2 != this.scrollConfigMtime) {
-         this.scrollConfig = KomutechConfigMerge.loadMerged(var1, "addon_configs/Komutech/卷轴属性.json");
+         this.scrollConfig = KomutechConfigMerge.ensureTemplate(var1, "卷轴属性.json");
 
          try {
             if (Files.exists(var1)) {

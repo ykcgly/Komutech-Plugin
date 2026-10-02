@@ -77,7 +77,7 @@ public final class ScrollBoxAdminScript implements NativeLifecycleScript, Komute
    }
 
    private void reloadConfig() {
-      this.scrollConfig = KomutechConfigMerge.loadMerged(KomutechPaths.scrollConfig(), "addon_configs/Komutech/卷轴属性.json");
+      this.scrollConfig = KomutechConfigMerge.ensureTemplate(KomutechPaths.scrollConfig(), "卷轴属性.json");
    }
 
    private void openList(Player var1, int var2) {
