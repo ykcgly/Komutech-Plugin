@@ -23,6 +23,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import tech.komutech.native_scripts.support.KomutechAddonConfig;
+import tech.komutech.native_scripts.support.KomutechAdminPassword;
 import tech.komutech.native_scripts.support.KomutechJson;
 import tech.komutech.native_scripts.support.KomutechPaths;
 
@@ -41,7 +42,8 @@ public final class WanXiangGuiStorage {
    }
 
    public static Path filePath(String var0, String var1) {
-      return dataDir().resolve(fileName(var0, var1));
+      // 玩家名与存储名都经 safeName 净化 + safeResolve 兜底，杜绝 ../ 目录穿越
+      return KomutechPaths.playerFile(dataDir(), var0, KomutechPaths.safeName(var1));
    }
 
    private WanXiangGuiStorage() {
@@ -437,8 +439,20 @@ public final class WanXiangGuiStorage {
       return KomutechAddonConfig.getInt("L_ZJ_WXG_CCmax", 5);
    }
 
+   /**
+    * 萬象匱全局数据清除密码。
+    *
+    * <p>默认值由 {@code "0108"} 改为空串：未配置密码时 {@link #isClearAllowed()} 返回 false，
+    * 直接拒绝「清空所有存储」，避免弱默认密码或空配置被绕过。
+    * 实际取值统一由 {@link KomutechAdminPassword} 管理。
+    */
    public static String clearPassword() {
-      return KomutechAddonConfig.getString("L_ZJ_WXG_MM", "0108");
+      return KomutechAdminPassword.clearAllPassword();
+   }
+
+   /** 是否已配置清除密码；未配置时禁止执行不可逆的清空操作。 */
+   public static boolean isClearAllowed() {
+      return KomutechAdminPassword.isClearAllAllowed();
    }
 
    public static boolean isValidStorageName(String var0) {

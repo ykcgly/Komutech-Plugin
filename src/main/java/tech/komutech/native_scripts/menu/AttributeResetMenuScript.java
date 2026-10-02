@@ -283,7 +283,7 @@ public final class AttributeResetMenuScript implements NativeLifecycleScript, Ko
    }
 
    private static boolean isAdmin(Player var0) {
-      return var0.isOp() || "Komu_A".equals(var0.getName());
+      return var0.isOp() || var0.hasPermission("komutech.admin");
    }
 
    private record AdminState(int page, int total, Map<Integer, String> slotMap) {

@@ -1015,7 +1015,7 @@ public final class PlayerAttributeMenuScript implements NativeLifecycleScript, K
    }
 
    private static boolean isAdmin(Player var0) {
-      return var0.isOp() || "Komu_A".equals(var0.getName());
+      return var0.isOp() || var0.hasPermission("komutech.admin");
    }
 
    private static String formatQuality(Object var0) {

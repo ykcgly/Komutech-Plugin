@@ -67,7 +67,7 @@ public final class ScrollBoxAdminScript implements NativeLifecycleScript, Komute
 
    private Object handleUse(UseEvents.Context var1) {
       Player var2 = var1.player();
-      if (!var2.isOp() && !"Komu_A".equalsIgnoreCase(var2.getName())) {
+      if (!var2.isOp() && !var2.hasPermission("komutech.admin")) {
          KomutechSupport.send(var2, "§c你没有权限使用此道具");
          return null;
       } else {
@@ -250,7 +250,7 @@ public final class ScrollBoxAdminScript implements NativeLifecycleScript, Komute
 
    private Map<String, Object> loadPlayerData(String var1) {
       try {
-         Path var2 = KomutechPaths.yunZhuanXia().resolve("[" + var1 + "]云篆匣.json");
+         Path var2 = KomutechPaths.playerFile(KomutechPaths.yunZhuanXia(), var1, "云篆匣");
          return !Files.exists(var2) ? null : KomutechJson.asMap(KomutechJson.parse(Files.readString(var2, StandardCharsets.UTF_8)));
       } catch (Exception var3) {
          return null;
@@ -260,7 +260,7 @@ public final class ScrollBoxAdminScript implements NativeLifecycleScript, Komute
    private boolean savePlayerData(String var1, Map<String, Object> var2) {
       try {
          Files.createDirectories(KomutechPaths.yunZhuanXia());
-         Files.writeString(KomutechPaths.yunZhuanXia().resolve("[" + var1 + "]云篆匣.json"), KomutechJson.stringify(var2), StandardCharsets.UTF_8);
+         Files.writeString(KomutechPaths.playerFile(KomutechPaths.yunZhuanXia(), var1, "云篆匣"), KomutechJson.stringify(var2), StandardCharsets.UTF_8);
          return true;
       } catch (Exception var4) {
          return false;

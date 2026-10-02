@@ -7,6 +7,7 @@ import org.bukkit.inventory.ItemStack;
 import tech.komutech.KT;
 import tech.komutech.behavior.BlockDrops;
 import tech.komutech.native_scripts.NativeScriptRegistry;
+import tech.komutech.native_scripts.support.KomutechAdminPassword;
 
 /**
  * 内容加载编排（对齐 WorldTaste 的 Setup）：
@@ -54,6 +55,13 @@ public final class Setup {
         Read.clearSkinCache();
         MissingItems.report();
         KT.preload.clear();
+        // 配置安全自检：确保 plugins/Komutech/ 已生成，未配置的高危操作密码给出告警
+        KomutechAdminPassword.warnIfUnconfigured();
+        // 运行期交互层注册：管理命令、菜单路由、聊天输入、异步调度器、脚本监听器。
+        // 必须在内容全部注册完成之后再注册——菜单路由要按 id 从 KT.menus 取菜单；
+        // 且异步调度器未启动时 submit() 会静默丢弃任务（不报错），导致删除/清空等
+        // 高危操作「看似校验了密码却根本没执行」，安全形同虚设。
+        NativeScriptRegistry.registerLifecycleListeners(KT.plugin);
         KT.plugin.getLogger().info("基础内容加载完成，耗时 " + (System.currentTimeMillis() - t) + "ms");
     }
 

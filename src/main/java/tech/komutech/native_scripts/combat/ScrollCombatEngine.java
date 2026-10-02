@@ -551,7 +551,7 @@ public final class ScrollCombatEngine {
 
    private static Map<String, Object> loadScrollData(String var0) {
       try {
-         Path var1 = scrollDataDir().resolve("[" + var0 + "]云篆匣.json");
+         Path var1 = KomutechPaths.playerFile(scrollDataDir(), var0, "云篆匣");
          return (Map<String, Object>)(!Files.exists(var1)
             ? new HashMap<>()
             : KomutechJson.asMap(KomutechJson.parse(Files.readString(var1, StandardCharsets.UTF_8))));
@@ -579,7 +579,7 @@ public final class ScrollCombatEngine {
 
          try {
             Files.createDirectories(scrollDataDir());
-            Files.writeString(scrollDataDir().resolve("[" + var0 + "]云篆匣.json"), KomutechJson.stringify(var4), StandardCharsets.UTF_8);
+            Files.writeString(KomutechPaths.playerFile(scrollDataDir(), var0, "云篆匣"), KomutechJson.stringify(var4), StandardCharsets.UTF_8);
          } catch (IOException var9) {
          }
 

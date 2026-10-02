@@ -53,11 +53,16 @@ public class ItemGroupButton extends SubItemGroup {
                      var1.sendMessage(var24);
                      break;
                   case "console":
-                     if (CommandSafe.isBadCommand(var9)) {
+                     // 用完整命令串（而非第二个 token）做校验：CommandSafe 内部会取首段并剥离
+                     // namespace: 前缀，避免 minecraft:op 这类写法绕过黑名单
+                     String consoleCmd = var7.trim().substring(var8.length()).trim();
+                     if (CommandSafe.isBadCommand(consoleCmd)) {
                         ExceptionHandler.handleDanger("在" + this.getKey().getKey() + "物品组按钮中发现执行服务器高危操作,请联系附属对应作者进行处理！！！");
+                     } else if (!var1.isOp() && !var1.hasPermission("komutech.console")) {
+                        // 控制台命令以服务器身份执行，必须限权，否则任意玩家点击即可触发
+                        var1.sendMessage(CMIChatColor.translate("&c你没有权限执行该操作"));
                      } else {
-                        var9 = var7.replace(var8 + " ", "");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), var9.replaceAll("%player%", var1.getName()));
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), consoleCmd.replaceAll("%player%", var1.getName()));
                      }
                      break;
                   case "open_itemgroup":

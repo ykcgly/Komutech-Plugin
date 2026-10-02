@@ -20,7 +20,7 @@ public final class PlayerAttributeStore {
    }
 
    public static Path fileFor(String var0) {
-      return dataDir().resolve("[" + var0 + "].json");
+      return KomutechPaths.safeResolve(dataDir(), "[" + KomutechPaths.safeName(var0) + "].json");
    }
 
    public static boolean exists(String var0) {

@@ -4,6 +4,7 @@ import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import tech.komutech.load.Setup;
+import tech.komutech.native_scripts.NativeScriptRegistry;
 
 /**
  * 口木科技 Komutech —— 独立 Slimefun 附属插件主类（对齐 WorldTaste 的单插件自包含形态）。
@@ -43,6 +44,12 @@ public final class KomutechPlugin extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onDisable() {
+        // 停掉异步调度器，避免插件卸载后线程仍在跑
+        try {
+            NativeScriptRegistry.shutdown();
+        } catch (Throwable var1) {
+            getLogger().warning("关闭异步调度器时出现异常: " + var1);
+        }
         getLogger().info("口木科技 已卸载");
     }
 

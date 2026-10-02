@@ -38,12 +38,13 @@ configurations.compileClasspath {
 }
 
 // 把 content/ 下的内容 YAML 一并打入 jar（插件运行期从自身资源读取）
+// 注意：default_config.yml 是配置模板，首次启动会被释放到 plugins/Komutech/config.yml
 val contentYaml = listOf(
     "groups.yml", "recipe_types.yml", "items.yml", "machines.yml", "foods.yml",
     "mob_drops.yml", "geo_resources.yml", "recipe_machines.yml", "mb_machines.yml",
     "linked_recipe_machines.yml", "template_machines.yml", "workbenches.yml", "menus.yml",
     "armors.yml", "capacitors.yml", "mat_generators.yml", "generations.yml",
-    "researches.yml", "config.yml"
+    "researches.yml", "default_config.yml"
 )
 
 tasks.processResources {

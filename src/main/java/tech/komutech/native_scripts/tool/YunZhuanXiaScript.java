@@ -247,7 +247,7 @@ public final class YunZhuanXiaScript implements NativeLifecycleScript, KomutechM
 
    private Map<String, Object> load(String var1) {
       try {
-         Path var2 = KomutechPaths.yunZhuanXia().resolve("[" + var1 + "]云篆匣.json");
+         Path var2 = KomutechPaths.playerFile(KomutechPaths.yunZhuanXia(), var1, "云篆匣");
          if (!Files.exists(var2)) {
             HashMap var6 = new HashMap();
             var6.put("卷轴数据", emptyScrolls());
@@ -273,7 +273,7 @@ public final class YunZhuanXiaScript implements NativeLifecycleScript, KomutechM
    private void save(String var1, Map<String, Object> var2) {
       try {
          Files.createDirectories(KomutechPaths.yunZhuanXia());
-         Files.writeString(KomutechPaths.yunZhuanXia().resolve("[" + var1 + "]云篆匣.json"), KomutechJson.stringify(var2), StandardCharsets.UTF_8);
+         Files.writeString(KomutechPaths.playerFile(KomutechPaths.yunZhuanXia(), var1, "云篆匣"), KomutechJson.stringify(var2), StandardCharsets.UTF_8);
       } catch (Exception var4) {
       }
    }

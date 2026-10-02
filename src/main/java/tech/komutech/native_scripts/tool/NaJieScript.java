@@ -128,7 +128,7 @@ public final class NaJieScript implements NativeLifecycleScript, KomutechMenuHan
    }
 
    private Path file(Player var1) {
-      return KomutechPaths.naJie().resolve("[" + var1.getName() + "]纳戒.json");
+      return KomutechPaths.playerFile(KomutechPaths.naJie(), var1.getName(), "纳戒");
    }
 
    private List<String> load(Player var1) {

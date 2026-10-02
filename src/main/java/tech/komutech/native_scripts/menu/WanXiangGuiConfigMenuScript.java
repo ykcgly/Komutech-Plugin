@@ -11,6 +11,7 @@ import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import tech.komutech.native_scripts.storage.WanXiangGuiStorage;
+import tech.komutech.native_scripts.support.KomutechAdminPassword;
 import tech.komutech.native_scripts.support.KomutechAsyncScheduler;
 import tech.komutech.native_scripts.support.KomutechChatInput;
 import tech.komutech.native_scripts.support.KomutechJson;
@@ -173,9 +174,15 @@ public final class WanXiangGuiConfigMenuScript implements NativeLifecycleScript,
          } else if (var3 == 49) {
             var1.closeInventory();
          } else if (var3 == 53) {
+            // 未配置清除密码时直接拒绝，避免沿用随包分发的默认密码清空全服数据
+            if (!KomutechAdminPassword.isClearAllAllowed()) {
+               KomutechSupport.send(var1, "§c未配置清除密码，已拒绝该操作。请在 plugins/Komutech/config.yml 中设置 "
+                  + KomutechAdminPassword.KEY_CLEAR_ALL + " 后重试");
+               return;
+            }
             KomutechSupport.send(var1, "§c确定要清空所有存储数据吗？此操作不可逆。请输入密码以确认:");
             KomutechChatInput.waitFor(var1, var2x -> {
-               if (WanXiangGuiStorage.clearPassword().equals(var2x)) {
+               if (KomutechAdminPassword.verifyClearAll(var2x)) {
                   KomutechAsyncScheduler.submit(WanXiangGuiStorage::deleteAllStorages, var2xx -> {
                      KomutechSupport.send(var1, "§a已清空所有存储数据");
                      this.openAdminMenu(var1, 1);
@@ -469,13 +476,26 @@ public final class WanXiangGuiConfigMenuScript implements NativeLifecycleScript,
       }
    }
 
+   /**
+    * 删除确认。
+    *
+    * <p>原先只需输入「确认删除」四个字即可执行，属于弱确认。现改为校验管理员删除密码
+    * （{@code plugins/Komutech/config.yml} 的 {@link KomutechAdminPassword#KEY_ADMIN_DELETE}）；
+    * 未配置密码时直接拒绝，避免服主漏配后删除操作形同虚设。
+    */
    private static void confirmDelete(Player var0, String var1, Runnable var2) {
-      KomutechSupport.send(var0, "§c确定要删除 §e" + var1 + "§c 吗？请输入 §6确认删除 §c以确认:");
+      if (!KomutechAdminPassword.isAdminDeleteAllowed()) {
+         KomutechSupport.send(var0, "§c未配置管理员删除密码，已拒绝删除操作。请在 plugins/Komutech/config.yml 中设置 "
+            + KomutechAdminPassword.KEY_ADMIN_DELETE + " 后重试");
+         return;
+      }
+
+      KomutechSupport.send(var0, "§c确定要删除 §e" + var1 + "§c 吗？此操作不可逆，请输入管理员密码以确认:");
       KomutechChatInput.waitFor(var0, var2x -> {
-         if ("确认删除".equals(var2x)) {
+         if (KomutechAdminPassword.verifyAdminDelete(var2x)) {
             var2.run();
          } else {
-            KomutechSupport.send(var0, "§c删除已取消");
+            KomutechSupport.send(var0, "§c密码错误，删除已取消");
          }
       });
    }
@@ -504,7 +524,7 @@ public final class WanXiangGuiConfigMenuScript implements NativeLifecycleScript,
    }
 
    private static boolean isAdmin(Player var0) {
-      return var0.isOp() || "Komu_A".equals(var0.getName());
+      return var0.isOp() || var0.hasPermission("komutech.admin");
    }
 
    private record AdminState(int page, int total, Map<Integer, String> slotMap) implements WanXiangGuiConfigMenuScript.MenuState {
