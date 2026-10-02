@@ -1,0 +1,6568 @@
+##                    口木科技更新日志
+Komutech_更新日志:
+  name: "&f&k.~&6&l&n更新日志&f&k~."
+  slots:
+    45-48:
+      material: pink_stained_glass_pane
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_PF_演示:
+  name: "{#00FA9A}&kA{#2DFBAE}&l机{#5AFCC2}&l器{#86FDD7}&l教{#B3FEEB}&l程{#E0FFFF}&l演{#00FA9A}&l示{#E0FFFF}&kA"
+  slots:
+    45-48:
+      material: pink_stained_glass_pane
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_PF_法则合成演示:
+  name: "{#00FA9A}&kA{#2DFBAE}&l法{#5AFCC2}&l则{#86FDD7}&l合{#B3FEEB}&l成{#E0FFFF}&l演{#00FA9A}&l示{#E0FFFF}&kA"
+  slots:
+    45-48:
+      material: pink_stained_glass_pane
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_PF_终极合成演示:
+  name: "{#00FA9A}&kA{#2DFBAE}&l终{#5AFCC2}&l极{#86FDD7}&l合{#B3FEEB}&l成{#E0FFFF}&l演{#00FA9A}&l示{#E0FFFF}&kA"
+  slots:
+    45-48:
+      material: pink_stained_glass_pane
+    50-53:
+      material: pink_stained_glass_pane
+
+
+
+##胶水提取器
+Komutech_JZ_JCJQ_jiaoshuitiquqi:
+  title: '&b&l胶水提取器'
+  slots:
+    3:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    4:
+      name: '&f&l提示'
+      material_type: mc
+      material: BIRCH_SIGN
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f左侧为&9输入槽'
+      - '&f右侧为&6输出槽'
+      - '&f此提示下方为非消耗型物品输入槽'
+      - '&f非消耗型物品输入槽也可作为普通的输入槽'
+    5:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    12:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    14:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    21:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    22:
+      material: black_stained_glass_pane
+      name: '&a'
+      progressbar: true
+      progressBarItem:
+        material: FLINT_AND_STEEL
+    23:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    30:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    31:
+      material: gray_stained_glass_pane
+      name: '&a'
+    32:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    39:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    40:
+      material: gray_stained_glass_pane
+      name: '&a'
+    41:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    48:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    49:
+      material: gray_stained_glass_pane
+      name: '&a'
+    50:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+Komutech_JZ_JCJQ_JZTQQ:
+  title: '&b&l胶质提取器'
+  slots:
+    0-8:
+      material: white_stained_glass_pane
+    9-12:
+      name: '&9输入'
+      material: blue_stained_glass_pane
+    13:
+      material: white_stained_glass_pane
+    14-17:
+      name: '&6输出'
+      material: orange_stained_glass_pane
+    18:
+      name: '&9输入'
+      material: blue_stained_glass_pane
+    21:
+      name: '&9输入'
+      material: blue_stained_glass_pane
+    22:
+      material: white_stained_glass_pane
+      progressbar: true
+      progressBarItem:
+        material_type: mc
+        material: water_bucket
+    23:
+      name: '&6输出'
+      material: orange_stained_glass_pane
+    26:
+      name: '&6输出'
+      material: orange_stained_glass_pane
+    27-30:
+      name: '&9输入'
+      material: blue_stained_glass_pane
+    31:
+      material: white_stained_glass_pane
+    32-35:
+      name: '&6输出'
+      material: orange_stained_glass_pane
+    36-44:
+      material: white_stained_glass_pane
+
+
+##网桥材质更换器
+Komutech_JZ_JCJQ_wqczghq:
+  title: '&b&l网桥材质更换器'
+  slots:
+    3:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    4:
+      name: '&f&l提示'
+      material_type: mc
+      material: BIRCH_SIGN
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f左侧为&9输入槽'
+      - '&f右侧为&6输出槽'
+      - '&f此提示下方为非消耗型物品输入槽'
+      - '&f非消耗型物品输入槽也可作为普通的输入槽'
+    5:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    12:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    14:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    21:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    22:
+      material: black_stained_glass_pane
+      name: '&a'
+      progressbar: true
+      progressBarItem:
+        material: FLINT_AND_STEEL
+    23:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    30:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    31:
+      material: gray_stained_glass_pane
+      name: '&a'
+    32:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    39:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    40:
+      material: gray_stained_glass_pane
+      name: '&a'
+    41:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    48:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    49:
+      material: gray_stained_glass_pane
+      name: '&a'
+    50:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+##能源连接器材质更换器
+Komutech_JZ_JCJQ_nyljqczghq:
+  title: '&b&l能源连接器材质更换器'
+  slots:
+    3:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    4:
+      name: '&f&l提示'
+      material_type: mc
+      material: BIRCH_SIGN
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f左侧为&9输入槽'
+      - '&f右侧为&6输出槽'
+      - '&f此提示下方为非消耗型物品输入槽'
+      - '&f非消耗型物品输入槽也可作为普通的输入槽'
+    5:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    12:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    14:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    21:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    22:
+      material: black_stained_glass_pane
+      name: '&a'
+      progressbar: true
+      progressBarItem:
+        material: FLINT_AND_STEEL
+    23:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    30:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    31:
+      material: gray_stained_glass_pane
+      name: '&a'
+    32:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    39:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    40:
+      material: gray_stained_glass_pane
+      name: '&a'
+    41:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+    48:
+      material: blue_stained_glass_pane
+      name: '&9输入'
+    49:
+      material: gray_stained_glass_pane
+      name: '&a'
+    50:
+      material: orange_stained_glass_pane
+      name: '&6输出'
+##管理专用
+Komutech_JZ_czwqscq_mt:
+  title: '&c&l管理专用!!!'
+  slots:
+    0:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    1:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    2:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    3:
+      name: '&f提示'
+      material_type: mc
+      material: BIRCH_SIGN
+      modelId: 88788
+      glow: true
+      lore:
+      - '&6下方为输出槽'
+    5:
+      name: '&f&l提示'
+      material_type: mc
+      material: BIRCH_SIGN
+      modelId: 88788
+      glow: true
+      lore:
+      - '&6下方为输出槽'
+    6:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    7:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    8:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    45:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    46:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    47:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    48:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    49:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    50:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    51:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    52:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    53:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+##管理专用
+Komutech_JZ_czwqscq_qpmt:
+  title: '&c&l管理专用!!!'
+  slots:
+    0:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    1:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    2:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    3:
+      name: '&f提示'
+      material_type: mc
+      material: BIRCH_SIGN
+      modelId: 88788
+      glow: true
+      lore:
+      - '&6下方为输出槽'
+    5:
+      name: '&f&l提示'
+      material_type: mc
+      material: BIRCH_SIGN
+      modelId: 88788
+      glow: true
+      lore:
+      - '&6下方为输出槽'
+    6:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    7:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    8:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    45:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    46:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    47:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    48:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    49:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    50:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    51:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    52:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    53:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+##管理专用
+Komutech_JZ_czwqscq_mb:
+  title: '&c&l管理专用!!!'
+  slots:
+    0:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    1:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    2:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    3:
+      name: '&f提示'
+      material_type: mc
+      material: BIRCH_SIGN
+      modelId: 88788
+      glow: true
+      lore:
+      - '&7右侧为输出槽'
+    5:
+      name: '&f&l提示'
+      material_type: mc
+      material: BIRCH_SIGN
+      modelId: 88788
+      glow: true
+      lore:
+      - '&6下方为输出槽'
+    6:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    7:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    8:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    45:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    46:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    47:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    48:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    49:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    50:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    51:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    52:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    53:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+##管理专用
+Komutech_JZ_cznyljqscq:
+  title: '&c&l管理专用!!!'
+  slots:
+    0:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    1:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    2:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    3:
+      name: '&f提示'
+      material_type: mc
+      material: BIRCH_SIGN
+      modelId: 88788
+      glow: true
+      lore:
+      - '&7右侧为输出槽'
+    5:
+      name: '&f&l提示'
+      material_type: mc
+      material: BIRCH_SIGN
+      modelId: 88788
+      glow: true
+      lore:
+      - '&6下方为输出槽'
+    6:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    7:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    8:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    45:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    46:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    47:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    48:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    49:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    50:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    51:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    52:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+    53:
+      material: pink_stained_glass_pane
+      name: '&c管理专用'
+##物品展台
+KOMUTECH_JZ_JCJQ_物品展台:
+  title: "&d&l物品展台"
+  script: "机器/物品展台"
+  slots:
+    0:
+      name: "&a向上移动"
+      material: ARROW
+    1:
+      name: "&a向左旋转"
+      material: GREEN_STAINED_GLASS_PANE
+    2:
+      name: "&a向前倾斜"
+      material: GREEN_STAINED_GLASS_PANE
+    3:
+      name: "&a向左翻滚"
+      material: GREEN_STAINED_GLASS_PANE
+    4:
+      name: "&7机器状态"
+      material: glow_item_frame
+    5:
+      name: " "
+      material: white_stained_glass_pane
+    6:
+      name: "&e发光开关"
+      material: GLOWSTONE_DUST
+    7:
+      name: " "
+      material: white_stained_glass_pane
+    8:
+      name: "&b重载信息"
+      material: structure_void
+    9:
+      name: "&b重置位置"
+      material: structure_void
+    10:
+      name: "&b重置偏航"
+      material: CLOCK
+    11:
+      name: "&b重置俯仰"
+      material: LEVER
+    12:
+      name: "&b重置翻滚"
+      material: REPEATER
+    14:
+      name: "&a&l注意!"
+      lore:
+      - '&f&l------怕某些人不看注释------'
+      - '&a展示物品拿走就不会展示了'
+      - '&a直接挖机器不会掉落展示物品'
+      - '&a把机器挖了展示物品依然在'
+      - '&a想要再次更改需再放置下来并把展示物品再放回来'
+      - '&a这样设计是为了去掉展台也能展示物品'
+      - '&a但凡事都有代价'
+      material: paper
+    15-17:
+      name: " "
+      material: white_stained_glass_pane
+    18:
+      name: "&c向下移动"
+      material: ARROW
+    19:
+      name: "&c向右旋转"
+      material: RED_STAINED_GLASS_PANE
+    20:
+      name: "&c向后倾斜"
+      material: RED_STAINED_GLASS_PANE
+    21:
+      name: "&c向右翻滚"
+      material: RED_STAINED_GLASS_PANE
+    22:
+      name: "&a开启投影"
+      material: LIME_STAINED_GLASS_PANE
+    23:
+      name: " "
+      material: white_stained_glass_pane
+    24:
+      name: "&b名称开关"
+      material: NAME_TAG
+    25:
+      name: " "
+      material: white_stained_glass_pane
+    26:
+      name: "&c关闭投影"
+      material: RED_STAINED_GLASS_PANE
+
+
+##灵能工匠台
+Komutech_L_JQ_LNGJT:
+  title: '{#D7C9AB}&l灵{#C8B590}&l能{#B8A07B}&l工{#A08966}&l匠{#8B7355}&l台'
+  slots:
+    0-3:
+      material: blue_stained_glass_pane
+      name: '&d输入'
+    4:
+      name: '&f&l提示'
+      material_type: mc
+      material: pink_stained_glass_pane
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    5-8:
+      material: orange_stained_glass_pane
+      name: '&e输出'
+    13:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    22:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    31:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    40:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    45-48:
+      material: blue_stained_glass_pane
+      name: '&d输入'
+    49:
+      name: '进度'
+      material_type: mc
+      material: compass
+      modelId: NONE
+      glow: true
+      progressbar: true
+      progressBarItem:
+        material: clock
+    50-53:
+      material: orange_stained_glass_pane
+      name: '&e输出'
+##灵能注灵台
+Komutech_L_JQ_LNZLT:
+  title: '{#D7C9AB}&l灵{#C8B590}&l能{#B8A07B}&l工{#A08966}&l匠{#8B7355}&l台'
+  slots:
+    0-3:
+      material: blue_stained_glass_pane
+      name: '&d输入'
+    4:
+      name: '&f&l提示'
+      material_type: mc
+      material: pink_stained_glass_pane
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    5-8:
+      material: orange_stained_glass_pane
+      name: '&e输出'
+    13:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    22:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    31:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    40:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    45-48:
+      material: blue_stained_glass_pane
+      name: '&d输入'
+    49:
+      name: '进度'
+      material_type: mc
+      material: compass
+      modelId: NONE
+      glow: true
+      progressbar: true
+      progressBarItem:
+        material: clock
+    50-53:
+      material: orange_stained_glass_pane
+      name: '&e输出'
+##灵脉矿井
+Komutech_L_JQ_LMKJ:
+  title: '{#B0E0E6}&l灵{#87CEEB}&l脉{#4682B4}&l矿{#4169E1}&l井'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+      name: '&d输入'
+    4:
+      name: '&c&l快干活！！！'
+      material_type: slimefun
+      material: PROGRAMMABLE_ANDROID_BUTCHER
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f上面为&d输入槽'
+      - '&f下面为&e输出槽'
+    5-8:
+      material: pink_stained_glass_pane
+      name: '&d输入'
+    9:
+      material: diamond_sword
+      name: '&c快干活！！！'
+      glow: true
+      lore:
+      - '&f你瞅啥？'
+    17:
+      material: lead
+      name: '&c快干活！！！'
+      glow: true
+      lore:
+      - '&f你瞅啥？'
+    18:
+      material: bow
+      name: '&c快干活！！！'
+      glow: true
+      lore:
+      - '&f你瞅啥？'
+    26:
+      material: crossbow
+      name: '&c快干活！！！'
+      glow: true
+      lore:
+      - '&f你瞅啥？'
+    27-30:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    31:
+      material: yellow_stained_glass_pane
+      name: '&a进度'
+      progressbar: true
+      progressBarItem:
+        material: Clock
+    32:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    33:
+      material: orange_stained_glass_pane
+      name: '&e工具槽'
+    34:
+      material: trident
+      name: '&4提示！'
+      glow: true
+      lore:
+      - '&f请将工具放入下方槽位'
+      - '&f上方格子为工具未被消耗概率'
+      - '&f些许工具不会被消耗(如人造小岛人)'
+      - '&f下方的工具槽位为输入输出槽位'
+    35:
+      material: orange_stained_glass_pane
+      name: '&e工具槽'
+    36:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    42:
+      material: orange_stained_glass_pane
+      name: '&e工具槽'
+      lore:
+      - '&f此为工具返还槽→'
+    44:
+      material: orange_stained_glass_pane
+      name: '&e工具槽'
+      lore:
+      - '&f←此为工具返还槽'
+    45:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    51:
+      material: orange_stained_glass_pane
+      name: '&e工具槽'
+      lore:
+      - '&f此为工具槽→'
+    53:
+      material: orange_stained_glass_pane
+      name: '&e工具槽'
+      lore:
+      - '&f左此为工具槽'
+##灵能提取器
+Komutech_L_JQ_LNTQQ:
+  title: '{#A6E3FF}&l灵{#87CEEB}&l能{#6495ED}&l提{#9370DB}&l取{#8A2BE2}&l器'
+  slots:
+    0-3:
+      material: blue_stained_glass_pane
+      name: '&d输入'
+    4:
+      name: '&f&l提示'
+      material_type: mc
+      material: pink_stained_glass_pane
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    5-8:
+      material: orange_stained_glass_pane
+      name: '&e输出'
+    13:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    22:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    31:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    40:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    45-48:
+      material: blue_stained_glass_pane
+      name: '&d输入'
+    49:
+      name: '进度'
+      material_type: mc
+      material: compass
+      modelId: NONE
+      glow: true
+      progressbar: true
+      progressBarItem:
+        material: clock
+    50-53:
+      material: orange_stained_glass_pane
+      name: '&e输出'
+##灵能提炼器
+Komutech_L_JQ_LNTLQ:
+  title: '{#B0E2FF}&l灵{#7EC0EE}&l能{#5D8AA8}&l提{#4169E1}&l炼{#9370DB}&l器'
+  slots:
+    0-3:
+      material: blue_stained_glass_pane
+      name: '&d输入'
+    4:
+      name: '&f&l提示'
+      material_type: mc
+      material: pink_stained_glass_pane
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    5-8:
+      material: orange_stained_glass_pane
+      name: '&e输出'
+    13:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    22:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    31:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    40:
+      material: white_stained_glass_pane
+      name: '&a'
+      lore:
+      - '&f左侧为&d输入槽'
+      - '&f右侧为&e输出槽'
+    45-48:
+      material: blue_stained_glass_pane
+      name: '&d输入'
+    49:
+      name: '进度'
+      material_type: mc
+      material: compass
+      modelId: NONE
+      glow: true
+      progressbar: true
+      progressBarItem:
+        material: clock
+    50-53:
+      material: orange_stained_glass_pane
+      name: '&e输出'
+##轮回渡罪狱
+Komutech_L_JQ_LHDZY:
+  title: '{#FF5555}&l😈{#FF3333}&l轮{#FF0000}&l回{#CC2244}&l渡{#991166}&l罪{#770088}&l狱{#550066}&l😈'
+  slots:
+    2:
+      material: black_stained_glass_pane
+      name: '&d←输出'
+    3-5:
+      name: '&f&l提示'
+      material_type: mc
+      material: soul_campfire
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f中间为&d输入槽'
+      - '&f←→为&e输出槽'
+    6:
+      material: black_stained_glass_pane
+      name: '&d输出→'
+    11:
+      material: black_stained_glass_pane
+      name: '&d←输出'
+    15:
+      material: black_stained_glass_pane
+      name: '&d输出→'
+    20:
+      material: black_stained_glass_pane
+      name: '&d←输出'
+    24:
+      material: black_stained_glass_pane
+      name: '&d输出→'
+    29:
+      material: black_stained_glass_pane
+      name: '&d←输出'
+    33:
+      material: black_stained_glass_pane
+      name: '&d输出→'
+    38:
+      material: black_stained_glass_pane
+      name: '&d←输出'
+    42:
+      material: black_stained_glass_pane
+      name: '&d输出→'
+    47:
+      material: black_stained_glass_pane
+      name: '&d←输出'
+    48:
+      name: '&f&l提示'
+      material_type: mc
+      material: soul_campfire
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f中间为&d输入槽'
+      - '&f←→为&e输出槽'
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: soul_campfire
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f中间为&d输入槽'
+      - '&f←→为&e输出槽'
+      progressbar: true
+      progressBarItem:
+        material: campfire
+    50:
+      name: '&f&l提示'
+      material_type: mc
+      material: soul_campfire
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f中间为&d输入槽'
+      - '&f←→为&e输出槽'
+    51:
+      material: black_stained_glass_pane
+      name: '&d输出→'
+##一芥乾坤
+KOMUTECH_L_JQ_下品一芥乾坤:
+  title: '&6&l『&a下品&6&l』{#7FFFD4}&l一{#55FFAA}&l芥{#FFA500}&l乾{#8B0000}&l坤'
+  slots:
+    0-2:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    8:
+      material: pink_stained_glass_pane
+      name: '&d输入槽'
+    9:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    11:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    17:
+      material: pink_stained_glass_pane
+      name: '&d输入槽'
+    18-20:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    21:
+      material: pink_stained_glass_pane
+      name: '&f&l提示'
+      lore:
+      - '&f上侧为&d输入槽'
+      - '&f下侧为&e输出槽'
+    22-25:
+      material: pink_stained_glass_pane
+      name: '&f&l提示'
+      lore:
+      - '&f上侧为&d输入槽'
+      - '&f下侧为&e输出槽'
+    26:
+      material: pink_stained_glass_pane
+      name: '&a进度'
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f上侧为&d输入槽'
+      - '&f下侧为&e输出槽'
+      progressbar: true
+      progressBarItem:
+        material_type: skull_url
+        material: http://textures.minecraft.net/texture/fbe0d9c13294d6c217c34d6662dd7d1755176c062e0c1974c55f48667a4857
+    27:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    35:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    36:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    44:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    45:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    53:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+KOMUTECH_L_JQ_中品一芥乾坤:
+  title: '&6&l『&e中品&6&l』{#7FFFD4}&l一{#55FFAA}&l芥{#FFA500}&l乾{#8B0000}&l坤'
+  slots:
+    0-2:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    8:
+      material: pink_stained_glass_pane
+      name: '&d输入槽'
+    9:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    11:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    17:
+      material: pink_stained_glass_pane
+      name: '&d输入槽'
+    18-20:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    21:
+      material: pink_stained_glass_pane
+      name: '&f&l提示'
+      lore:
+      - '&f上侧为&d输入槽'
+      - '&f下侧为&e输出槽'
+    22-25:
+      material: pink_stained_glass_pane
+      name: '&f&l提示'
+      lore:
+      - '&f上侧为&d输入槽'
+      - '&f下侧为&e输出槽'
+    26:
+      material: pink_stained_glass_pane
+      name: '&a进度'
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f上侧为&d输入槽'
+      - '&f下侧为&e输出槽'
+      progressbar: true
+      progressBarItem:
+        material_type: skull_base64
+        material: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWIzNTNjMDcxNzk3NDUxMDAzMmM2MWYyZGU2NGFlZTA4MTg4MzUyZDZkMDE0NDQwOGZhMjI5NzYyOWEyZDYyIn19fQ==
+    27:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    35:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    36:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    44:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    45:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    53:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+KOMUTECH_L_JQ_上品一芥乾坤:
+  title: '&6&l『&3上品&6&l』{#7FFFD4}&l一{#55FFAA}&l芥{#FFA500}&l乾{#8B0000}&l坤'
+  slots:
+    0-2:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    8:
+      material: pink_stained_glass_pane
+      name: '&d输入槽'
+    9:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    11:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    17:
+      material: pink_stained_glass_pane
+      name: '&d输入槽'
+    18-20:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    21:
+      material: pink_stained_glass_pane
+      name: '&f&l提示'
+      lore:
+      - '&f上侧为&d输入槽'
+      - '&f下侧为&e输出槽'
+    22-25:
+      material: pink_stained_glass_pane
+      name: '&f&l提示'
+      lore:
+      - '&f上侧为&d输入槽'
+      - '&f下侧为&e输出槽'
+    26:
+      material: pink_stained_glass_pane
+      name: '&a进度'
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f上侧为&d输入槽'
+      - '&f下侧为&e输出槽'
+      progressbar: true
+      progressBarItem:
+        material_type: skull_base64
+        material: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTI4OWQ1YjE3ODYyNmVhMjNkMGIwYzNkMmRmNWMwODVlODM3NTA1NmJmNjg1YjVlZDViYjQ3N2ZlODQ3MmQ5NCJ9fX0=
+    27:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    35:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    36:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    44:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    45:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    53:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+KOMUTECH_L_JQ_极品一芥乾坤:
+  title: '&6&l『&c极品&6&l』{#7FFFD4}&l一{#55FFAA}&l芥{#FFA500}&l乾{#8B0000}&l坤'
+  slots:
+    0-2:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    8:
+      material: pink_stained_glass_pane
+      name: '&d输入槽'
+    9:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    11:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    17:
+      material: pink_stained_glass_pane
+      name: '&d输入槽'
+    18-20:
+      material: lime_stained_glass_pane
+      name: '&6工具'
+    21:
+      material: pink_stained_glass_pane
+      name: '&f&l提示'
+      lore:
+      - '&f上侧为&d输入槽'
+      - '&f下侧为&e输出槽'
+    22-25:
+      material: pink_stained_glass_pane
+      name: '&f&l提示'
+      lore:
+      - '&f上侧为&d输入槽'
+      - '&f下侧为&e输出槽'
+    26:
+      material: pink_stained_glass_pane
+      name: '&a进度'
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f上侧为&d输入槽'
+      - '&f下侧为&e输出槽'
+      progressbar: true
+      progressBarItem:
+        material_type: skull_base64
+        material: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjU5ZThkNDE5NmZlYTgyNzAyNWMyOTI3YTZmY2Q2ZTk4ZDAzMDA1NzM3MTIzOGE3N2FlNGNkZGViY2U4NjQ3NyJ9fX0=
+    27:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    35:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    36:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    44:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    45:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+    53:
+      material: yellow_stained_glass_pane
+      name: '&e输出'
+
+##琼华阁
+KOMUTECH_L_JQ_琼华阁:
+  title: '{#00FA9A}&kA{#2DFBAE}&l琼{#5AFCC2}&l华{#86FDD7}&l阁{#B3FEEB}&kA'
+  slots:
+    0-3:
+      material: orange_stained_glass_pane
+      name: '§6✨'
+    5-9:
+      material: orange_stained_glass_pane
+      name: '§6✨'
+    17-18:
+      material: orange_stained_glass_pane
+      name: '§6✨'
+    26-27:
+      material: orange_stained_glass_pane
+      name: '§6✨'
+    35-39:
+      material: orange_stained_glass_pane
+      name: '§6✨'
+    40:
+      material: orange_stained_glass_pane
+      name: '§6✨'
+      progressbar: true
+      progressBarItem:
+        material_type: mc
+        material: emerald
+    41-45:
+      material: orange_stained_glass_pane
+      name: '§6✨'
+    53:
+      material: orange_stained_glass_pane
+      name: '§6✨'
+
+Komutech_L_JQ_万相悟道仪:
+  title: '{#a1c4fd}&l✦{#a7c9fc}&l›{#adcefb}&l万{#b3d3fa}&l相{#b9d8f9}&l悟{#bfddf8}&l道{#c5e2f7}&l仪{#cbe7f6}&l‹{#d1ecf5}&l✦{#c2e9fb}&l'
+  slots:
+    0-2:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    9:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    11:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    18-20:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    21:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输入槽↑↑↑'
+      lore:
+      - '&6↓↓↓输出槽↓↓↓'
+    22:
+      material: clock
+      name: '&a&l提示'
+      lore:
+      - '&f模板越多速度越快产量越高哦~'
+      glow: true
+      progressbar: true
+      progressBarItem:
+        material_type: mc
+        material: compass
+    23-26:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输入槽↑↑↑'
+      lore:
+      - '&6↓↓↓输出槽↓↓↓'
+    45-53:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输出槽↑↑↑'
+Komutech_L_JQ_万相明悟仪:
+  title: '{#fbc2eb}&l✦{#f2c1ec}&l›{#e9c0ed}&l万{#e0bfee}&l相{#d7bee9}&l明{#cebddf}&l悟{#c5bcd5}&l仪{#bcbbcb}&l‹{#b3bac1}&l✦{#a6c1ee}&l'
+  slots:
+    0-2:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    9:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    11:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    18-20:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    21:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输入槽↑↑↑'
+      lore:
+      - '&6↓↓↓输出槽↓↓↓'
+    22:
+      material: clock
+      name: '&a&l提示'
+      lore:
+      - '&f模板越多速度越快产量越高哦~'
+      glow: true
+      progressbar: true
+      progressBarItem:
+        material_type: mc
+        material: compass
+    23-26:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输入槽↑↑↑'
+      lore:
+      - '&6↓↓↓输出槽↓↓↓'
+    45-53:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输出槽↑↑↑'
+Komutech_L_JQ_万相破妄仪:
+  title: '{#a18cd1}&l✦{#ac93d5}&l›{#b79ada}&l万{#c2a1de}&l相{#cda8e2}&l破{#d8afe7}&l妄{#e3b6eb}&l仪{#eebdef}&l‹{#f9c4f3}&l✦{#fbc2eb}&l'
+  slots:
+    0-2:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    9:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    11:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    18-20:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    21:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输入槽↑↑↑'
+      lore:
+      - '&6↓↓↓输出槽↓↓↓'
+    22:
+      material: clock
+      name: '&a&l提示'
+      lore:
+      - '&f模板越多速度越快产量越高哦~'
+      glow: true
+      progressbar: true
+      progressBarItem:
+        material_type: mc
+        material: compass
+    23-26:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输入槽↑↑↑'
+      lore:
+      - '&6↓↓↓输出槽↓↓↓'
+    45-53:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输出槽↑↑↑'
+Komutech_L_JQ_万相通明仪:
+  title: '{#FFD700}&l✦{#FFCF00}&l›{#FFC700}&l万{#FFBF00}&l相{#FFB700}&l造{#FFAF00}&l化{#FFA700}&l仪{#FF9F00}&l‹{#FF9700}&l✦{#FFA500}&l'
+  slots:
+    0-2:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    9:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    11:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    18-20:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    21:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输入槽↑↑↑'
+      lore:
+      - '&6↓↓↓输出槽↓↓↓'
+    22:
+      material: clock
+      name: '&a&l提示'
+      lore:
+      - '&f模板越多速度越快产量越高哦~'
+      glow: true
+      progressbar: true
+      progressBarItem:
+        material_type: mc
+        material: compass
+    23-26:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输入槽↑↑↑'
+      lore:
+      - '&6↓↓↓输出槽↓↓↓'
+    45-53:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输出槽↑↑↑'
+Komutech_L_JQ_万相元炁仪:
+  title: '{#FFD700}&l✦{#FFCF00}&l›{#FFC700}&l万{#FFBF00}&l相{#FFB700}&l元{#FFAF00}&l炁{#FFA700}&l仪{#FF9F00}&l‹{#FF9700}&l✦{#FFA500}&l'
+  slots:
+    0-2:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    9:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    11:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    18-20:
+      material: orange_stained_glass_pane
+      name: '&6模板槽位'
+    21:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输入槽↑↑↑'
+      lore:
+      - '&6↓↓↓输出槽↓↓↓'
+    22:
+      material: clock
+      name: '&a&l提示'
+      lore:
+      - '&f模板越多速度越快产量越高哦~'
+      glow: true
+      progressbar: true
+      progressBarItem:
+        material_type: mc
+        material: compass
+    23-26:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输入槽↑↑↑'
+      lore:
+      - '&6↓↓↓输出槽↓↓↓'
+    45-53:
+      material: white_stained_glass_pane
+      name: '&b↑↑↑输出槽↑↑↑'
+
+
+##悟道石法则承载器
+KOMUTECH_L_JQ_FZCZQ:
+  title: '{#FF1493}&l法{#FF00FF}&l则{#DA70D6}&l承{#9370DB}&l载{#8A2BE2}&l器'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+      name: '&e请及时拿走法则'
+      lore:
+      - '&f悟道成功后法则会留在此机'
+      - '&f不会自动消失，请自行取出'
+    4:
+      material_type: skull_url
+      material: http://textures.minecraft.net/texture/6b9c49ffdf4ce4c6f5f049efc8ca0e08b9b5bbf3c6a8783dfaaccad77dfc997a
+      name: '&f&l提示'
+      lore:
+      - '&f随机生成在下方'
+      - '&f悟道石须放在承载器北侧（-Z）'
+      - '&f玩家站在悟道石上并满足环境条件'
+      progressbar: true
+      progressBarItem:
+        material_type: mc
+        material: compass
+    5-8:
+      material: pink_stained_glass_pane
+      name: '&e请及时拿走法则'
+      lore:
+      - '&f悟道成功后法则会留在此机'
+      - '&f不会自动消失，请自行取出'
+    45-48:
+      material: pink_stained_glass_pane
+      name: '&e请及时拿走法则'
+      lore:
+      - '&f悟道成功后法则会留在此机'
+      - '&f不会自动消失，请自行取出'
+      progressBarItem:
+        material_type: skull_url
+        material: http://textures.minecraft.net/texture/6b9c49ffdf4ce4c6f5f049efc8ca0e08b9b5bbf3c6a8783dfaaccad77dfc997a
+    50-53:
+      material: pink_stained_glass_pane
+      name: '&e请及时拿走法则'
+      lore:
+      - '&f悟道成功后法则会留在此机'
+      - '&f不会自动消失，请自行取出'
+KOMUTECH_L_JQ_LXFZCZQ:
+  title: '{#FFB347}&l❖ {#FFB347}&l灵{#FFC154}&l曦{#FFCF62}&l法{#FFDD70}&l则{#FFEB7E}&l承{#FFDD70}&l载{#FFCF62}&l器 {#FFB347}&l❖'
+  slots:
+    5-8:
+      material: yellow_stained_glass_pane
+      name: '&f左侧为输入槽右侧为输出槽'
+      lore:
+      - '&a请按 金 木 水 火 土 的顺序'
+      - '&a每排升序放1-5个'
+    14:
+      material: yellow_stained_glass_pane
+      name: '&f左侧为输入槽右侧为输出槽'
+      lore:
+      - '&a请按 金 木 水 火 土 的顺序'
+      - '&a每排升序放1-5个'
+    17:
+      material: yellow_stained_glass_pane
+      name: '&f左侧为输入槽右侧为输出槽'
+      lore:
+      - '&a请按 金 木 水 火 土 的顺序'
+      - '&a每排升序放1-5个'
+    23:
+      material: yellow_stained_glass_pane
+      name: '&f左侧为输入槽右侧为输出槽'
+      lore:
+      - '&a请按 金 木 水 火 土 的顺序'
+      - '&a每排升序放1-5个'
+      progressbar: true
+      progressBarItem:
+        material_type: mc
+        material: compass
+    26:
+      material: yellow_stained_glass_pane
+      name: '&f左侧为输入槽右侧为输出槽'
+      lore:
+      - '&a请按 金 木 水 火 土 的顺序'
+      - '&a每排升序放1-5个'
+    32:
+      material: yellow_stained_glass_pane
+      name: '&f左侧为输入槽右侧为输出槽'
+      lore:
+      - '&a请按 金 木 水 火 土 的顺序'
+      - '&a每排升序放1-5个'
+    35:
+      material: yellow_stained_glass_pane
+      name: '&f左侧为输入槽右侧为输出槽'
+      lore:
+      - '&a请按 金 木 水 火 土 的顺序'
+      - '&a每排升序放1-5个'
+    41-44:
+      material: yellow_stained_glass_pane
+      name: '&f左侧为输入槽右侧为输出槽'
+      lore:
+      - '&a请按 金 木 水 火 土 的顺序'
+      - '&a每排升序放1-5个'
+KOMUTECH_L_JQ_ZQFZCZQ:
+  title: '{#FFB347}&l❖ {#FFB347}&l祖{#FFC154}&l炁{#FFCF62}&l法{#FFDD70}&l则{#FFEB7E}&l承{#FFDD70}&l载{#FFCF62}&l器 {#FFB347}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+      name: '&e请及时拿走法则'
+      lore:
+      - '&f5s不拿走会消失哦~'
+    4:
+      material_type: skull_url
+      material: http://textures.minecraft.net/texture/6b9c49ffdf4ce4c6f5f049efc8ca0e08b9b5bbf3c6a8783dfaaccad77dfc997a
+      name: '&f&l提示'
+      lore:
+      - '&f随机生成在下方'
+      progressbar: true
+      progressBarItem:
+        material_type: mc
+        material: compass
+    5-8:
+      material: pink_stained_glass_pane
+      name: '&e请及时拿走法则'
+      lore:
+      - '&f5s不拿走会消失哦~'
+    45-48:
+      material: pink_stained_glass_pane
+      name: '&e请及时拿走法则'
+      lore:
+      - '&f5s不拿走会消失哦~'
+      progressBarItem:
+        material_type: skull_url
+        material: http://textures.minecraft.net/texture/6b9c49ffdf4ce4c6f5f049efc8ca0e08b9b5bbf3c6a8783dfaaccad77dfc997a
+    50-53:
+      material: pink_stained_glass_pane
+      name: '&e请及时拿走法则'
+      lore:
+      - '&f5s不拿走会消失哦~'
+
+##万相制造仪
+KOMUTECH_L_WD_WXZZY:
+  title: "{#ffecc2}&l▣{#ffdf9e}&l万{#ffd27a}&l相{#ffc556}&l制{#ffd27a}&l造{#ffdf9e}&l仪{#ffecc2}&l▣"
+  script: "L_机器/塑坯台"
+  slots:
+    0-3:
+      material: brown_stained_glass_pane
+    4:
+      name: '&c&l提示'
+      material_type: mc
+      material: crafter
+      glow: true
+      lore:
+      - '&f若无法合成请挖掉重新放置.'
+    5-8:
+      material: brown_stained_glass_pane
+    36-38:
+      material: brown_stained_glass_pane
+    39:
+      name: '&a&l合成'
+      material_type: mc
+      material: oak_button
+      glow: true
+      lore:
+      - '&f无需检测ID请点我.'
+    40:
+      name: '&c&l注意！'
+      material_type: mc
+      material: lantern
+      modelId: NONE
+      glow: true
+      lore:
+      - '&c合成材料下标注需要绑定ID的'
+      - '&a需要点右侧检测并合成→'
+      - '&c合成材料无标注需要绑定ID的'
+      - '&a←请点击左侧合成'
+      - '&f若无法合成请挖掉重新放置.'
+      progressbar: true
+      progressBarItem:
+        material: clock
+    41:
+      name: '&a&l检测并合成'
+      material_type: mc
+      material: stone_button
+      glow: true
+      lore:
+      - '&f需检测ID合成的请点我.'
+    42-45:
+      material: brown_stained_glass_pane
+    53:
+      material: brown_stained_glass_pane
+##灵脉宝窟
+KOMUTECH_L_JQ_灵脉宝窟:
+  title: '{#9d80fe}&l◈{#c4b3ff}&l灵{#e6e0ff}&l脉{#c4b3ff}&l宝{#e6e0ff}&l窟{#9d80fe}&l◈'
+  script: "L_机器/灵脉宝窟"
+  slots:
+    0-35:
+      name: '§f点击挖掘'
+      material: stone
+    36-39:
+      material: brown_stained_glass_pane
+      name: '&f↑↑↑点击石头进行开采↑↑↑'
+      lore:
+      - '&f↓↓↓输出槽位↓↓↓'
+    40:
+      material_type: skull_base64
+      material: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2M1ODNmNzE1MDlkMDI2MmUzZGMzZjFkMWE0YzZhMWZhNjA0ZWMxN2NjMjA4NjVkOGE2ZDdiOWM2YTQ4YWUwYSJ9fX0=
+      name: '&f&l提示'
+      lore:
+      - '&f右键消耗工具耐久自动挖掘'
+      - '&fshift+左键重置石头'
+      - "&c注意!重新加载脚本会导致无法使用并报错重新放置即可。"
+      - "&c注意!若放置的机器过多可等服务器重新启动即可恢复。"
+      - "&c注意!机器打开若无法使用请挖掉重新放置。"
+    41-43:
+      material: brown_stained_glass_pane
+      name: '&f↑↑↑点击石头进行开采↑↑↑'
+      lore:
+      - '&f↓↓↓输出槽位↓↓↓'
+    44:
+      progressbar: true
+      material: iron_pickaxe
+      name: '&f↓↓↓工具槽位↓↓↓'
+      lore:
+      - '&f放入工具&a&l&n下界合金镐&f后可快捷挖掘'
+    45:
+      material: brown_stained_glass_pane
+      name: '&f输出槽位'
+##灵脉晶辉宝窟
+KOMUTECH_L_JQ_灵脉晶辉宝窟:
+  title: '{#9d80fe}&l◈{#c4b3ff}&l灵{#e6e0ff}&l脉{#c4b3ff}&l晶{#9d80fe}&l辉{#c4b3ff}&l宝{#e6e0ff}&l窟{#9d80fe}&l◈'
+  script: "L_机器/灵脉晶辉宝窟"
+  slots:
+    0-35:
+      name: '§f点击挖掘'
+      material: stone
+    36-39:
+      material: brown_stained_glass_pane
+      name: '&f↑↑↑点击石头进行开采↑↑↑'
+      lore:
+      - '&f↓↓↓输出槽位↓↓↓'
+    40:
+      material_type: skull_base64
+      material: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2M1ODNmNzE1MDlkMDI2MmUzZGMzZjFkMWE0YzZhMWZhNjA0ZWMxN2NjMjA4NjVkOGE2ZDdiOWM2YTQ4YWUwYSJ9fX0=
+      name: '&f&l提示'
+      lore:
+      - '&f右键消耗工具耐久自动挖掘'
+      - '&fshift+左键重置石头'
+      - "&c注意!重新加载脚本会导致无法使用并报错重新放置即可。"
+      - "&c注意!若放置的机器过多可等服务器重新启动即可恢复。"
+      - "&c注意!机器打开若无法使用请挖掉重新放置。"
+    41-43:
+      material: brown_stained_glass_pane
+      name: '&f↑↑↑点击石头进行开采↑↑↑'
+      lore:
+      - '&f↓↓↓输出槽位↓↓↓'
+    44:
+      progressbar: true
+      material: iron_pickaxe
+      name: '&f↓↓↓工具槽位↓↓↓'
+      lore:
+      - '&f放入工具&a&l&n下界合金镐&f后可快捷挖掘'
+    45:
+      material: brown_stained_glass_pane
+      name: '&f输出槽位'
+##光暗堆叠
+Komutech_JZ_DJR_口木版堆叠光暗开采器:
+  title: '口木版堆叠光暗开采器(不进存储版)'
+  script: "待加入/口木版堆叠光暗开采器"
+  slots:
+    36-38:
+      material: black_stained_glass_pane
+      name: '&f上方为输出槽'
+    39:
+      material: white_stained_glass_pane
+      name: '&f上方为输出槽'
+    40:
+      material: glowstone
+      name: '&a点击检测下方存储(退出菜单也会自动检测)'
+    41-42:
+      material: white_stained_glass_pane
+      name: '&f上方为输出槽'
+    43:
+      material: sugar
+      name: '&a点击检测下方存储(退出菜单也会自动检测)'
+    44:
+      material: white_stained_glass_pane
+      name: '&f上方为输出槽'
+    45:
+      material: black_stained_glass_pane
+      name: '&f请放入玄铁镐→'
+    47:
+      material: black_stained_glass_pane
+      name: '&f←请放入玄铁镐'
+    48:
+      material: white_stained_glass_pane
+      name: '&f请放入光暗生成器存储→'
+    50:
+      material: white_stained_glass_pane
+      name: '&f←请放入光暗生成器存储'
+    51:
+      material: white_stained_glass_pane
+      name: '&f请放入光暗存储→'
+    53:
+      material: white_stained_glass_pane
+      name: '&f←请放入光暗存储'
+##快捷序列化构造机
+Komutech_JZ_DJR_快捷序列化构造机:
+  title: '快捷序列化构造机'
+  script: "待加入/快捷序列化构造机"
+  slots:
+    0-2:
+      material: blue_stained_glass_pane
+      name: '&f请放置物品存储'
+    3-5:
+      material: orange_stained_glass_pane
+      name: '&f请放置物品存储'
+    6-9:
+      material: blue_stained_glass_pane
+      name: '&f请放置物品存储'
+    11:
+      material: blue_stained_glass_pane
+      name: '&f请放置物品存储'
+    12:
+      material: orange_stained_glass_pane
+      name: '&f请放置物品存储'
+    14:
+      material: orange_stained_glass_pane
+      name: '&f请放置物品存储'
+    15:
+      material: blue_stained_glass_pane
+      name: '&f请放置物品存储'
+    17-20:
+      material: blue_stained_glass_pane
+      name: '&f请放置物品存储'
+    21:
+      material: orange_stained_glass_pane
+      name: '&f请放置物品存储'
+    22:
+      material: light
+      name: '&f请放置物品存储'
+    23:
+      material: orange_stained_glass_pane
+      name: '&f请放置物品存储'
+    24-26:
+      material: blue_stained_glass_pane
+      name: '&f请放置物品存储'
+
+##灵能炼器坊
+KOMUTECH_L_JQ_JZZXT:
+  title: '{#FF4500}&l灵{#FF6347}&l能{#E9967A}&l炼{#CD5C5C}&l器{#B22222}&l坊'
+  slots:
+    6-8:
+      material: light_blue_stained_glass_pane
+    15:
+      material: light_blue_stained_glass_pane
+    16-17:
+      material: lime_stained_glass_pane
+    24:
+      material_type: skull_url
+      material: http://textures.minecraft.net/texture/4f3144d72dad12a12e6dd295d13c8e983bc9697d61fd72af2d7c0a8e8f65140a
+      name: '&f&l提示'
+      lore:
+      - '&f左侧放入材料'
+      - '&f右侧输出成品'
+    33:
+      material_type: skull_url
+      material: http://textures.minecraft.net/texture/1bde55ed54cb5c87661b86c349186a9d5baffb3cb934b449a2d329e399d34bf
+      name: '&a点击合成'
+      glow: true
+    42:
+      material: light_blue_stained_glass_pane
+    43-44:
+      material: lime_stained_glass_pane
+    51-53:
+      material: light_blue_stained_glass_pane
+##符箓绘制台
+KOMUTECH_L_JQ_FLHZT:
+  name: "{#F5F0E1}&l符{#E6D5B8}&l箓{#D4B996}&l绘{#BA946F}&l制{#8B6E4E}&l台"
+  slots:
+    6-8:
+      material: light_blue_stained_glass_pane
+    15:
+      material: light_blue_stained_glass_pane
+    16-17:
+      material: lime_stained_glass_pane
+    24:
+      material_type: skull_url
+      material: http://textures.minecraft.net/texture/145c70e5e5a96bae45c6530ca83faf53231642cca06dff5677640ede978ce3b2
+      name: '&f&l提示'
+      lore:
+      - '&f左侧放入材料'
+      - '&f右侧输出成品'
+    33:
+      material_type: skull_url
+      material: http://textures.minecraft.net/texture/1bde55ed54cb5c87661b86c349186a9d5baffb3cb934b449a2d329e399d34bf
+      name: '&a点击合成'
+      glow: true
+    42:
+      material: light_blue_stained_glass_pane
+    43-44:
+      material: lime_stained_glass_pane
+    51-53:
+      material: light_blue_stained_glass_pane
+##灵能撰写台
+KOMUTECH_L_JQ_LNLQF:
+  name: "{#2F4F4F}&l卷{#556B2F}&l轴{#8B7355}&l撰{#DAA520}&l写{#F5DEB3}&l台"
+  slots:
+    6-8:
+      material: light_blue_stained_glass_pane
+    15:
+      material: light_blue_stained_glass_pane
+    16-17:
+      material: lime_stained_glass_pane
+    24:
+      material_type: skull_url
+      material: http://textures.minecraft.net/texture/b81ef23ed7da7ee048a8c5998a01e0d3d5357d426a18ac9e9613a5dd5333ebd4
+      name: '&f&l提示'
+      lore:
+      - '&f左侧放入材料'
+      - '&f右侧输出成品'
+    33:
+      material_type: skull_url
+      material: http://textures.minecraft.net/texture/1bde55ed54cb5c87661b86c349186a9d5baffb3cb934b449a2d329e399d34bf
+      name: '&a点击合成'
+      glow: true
+    42:
+      material: light_blue_stained_glass_pane
+    43-44:
+      material: lime_stained_glass_pane
+    51-53:
+      material: light_blue_stained_glass_pane
+##炼枢造生仪
+KOMUTECH_L_JQ_LSZSY:
+  name: "{#A7F3D0}炼{#6EE7B7}枢{#34D399}造{#10B981}生{#059669}仪"
+  slots:
+    6-8:
+      material: light_blue_stained_glass_pane
+    15:
+      material: light_blue_stained_glass_pane
+    16-17:
+      material: lime_stained_glass_pane
+    24:
+      material_type: skull_base64
+      material: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjRiNTRmM2U2YTcwMTZhMTRlNzZlZWRjNTMwNDBmNDk2MDU4MWJhY2FjODE0ZmZiNTgxNmZhZTFhMTRiMDE4ZCJ9fX0=
+      name: '&f&l提示'
+      lore:
+      - '&f左侧放入材料'
+      - '&f右侧输出成品'
+    33:
+      material_type: skull_url
+      material: http://textures.minecraft.net/texture/1bde55ed54cb5c87661b86c349186a9d5baffb3cb934b449a2d329e399d34bf
+      name: '&a点击合成'
+      glow: true
+    42:
+      material: light_blue_stained_glass_pane
+    43-44:
+      material: lime_stained_glass_pane
+    51-53:
+      material: light_blue_stained_glass_pane
+
+##百工寮
+KOMUTECH_L_JQ_BGL:
+  title: "{#c9a77c}&l◈{#c9a77c}&l百{#a67c52}&l工{#8b5a2b}&l寮{#c9a77c}&l◈"
+  slots:
+    0-3:
+      material: brown_stained_glass_pane
+    4:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f下方为&d输入槽'
+    5-8:
+      material: brown_stained_glass_pane
+    36-39:
+      material: brown_stained_glass_pane
+    40:
+      name: '&f&l进度'
+      material_type: mc
+      material: compass
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f上方为&d输入槽'
+      - '&f下方为&e输出槽'
+      progressbar: true
+      progressBarItem:
+        material: clock
+    41-45:
+      material: brown_stained_glass_pane
+    53:
+      material: brown_stained_glass_pane
+##赶流云
+KOMUTECH_L_GLY_赶流云_没想好:
+  title: "{#ff9a9e}&l✦{#ffacb0}&l赶{#ffbec1}&l流{#fdd0ca}&l云{#fad0c4}&l✦"
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    4:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f下方为&d输入槽'
+    5-8:
+      material: pink_stained_glass_pane
+    36-39:
+      material: pink_stained_glass_pane
+    40:
+      name: '&f&l进度'
+      material_type: mc
+      material: compass
+      modelId: NONE
+      glow: true
+      lore:
+      - '&f上方为&d输入槽'
+      - '&f下方为&e输出槽'
+      progressbar: true
+      progressBarItem:
+        material: clock
+    41-45:
+      material: pink_stained_glass_pane
+    53:
+      material: pink_stained_glass_pane
+
+
+ 
+##终极   萬衍儀
+KOMUTECH_L_ZJ_萬衍儀:
+  title: '{#00FA9A}&l-{#19FBA5}&l-{#32FBB0}&l-{#4BFCBC}&l✦ {#7CFDD2}&l✫{#95FDDD}&l·{#AEFEE9}&l萬{#C7FEF4}&l·{#E0FFFF}&l衍{#C7FEF4}&l·{#AEFEE9}&l儀{#95FDDD}&l·{#7CFDD2}&l✫ {#4BFCBC}&l✦{#32FBB0}&l-{#19FBA5}&l-{#00FA9A}&l-'
+  script: "L_机器/萬衍儀"
+  slots:
+    0-44:
+      name: " "
+      material: black_stained_glass_pane
+    45:
+      name: " "
+      material: white_stained_glass_pane
+    46:
+      name: " "
+      material: white_stained_glass_pane
+    47:
+      name: "§a按拼音整理"
+      material: HOPPER
+      lore: "§7点击将所有页物品按拼音排序"
+    48:
+      name: "§a上一页"
+      material: ARROW
+      lore: "§7点击切换到上一页"
+    50:
+      name: "§a下一页"
+      material: ARROW
+      lore: "§7点击切换到下一页"
+    51:
+      name: "§a搜索"
+      material: NAME_TAG
+      lore: "§7点击输入关键词搜索物品"
+    52:
+      name: " "
+      material: white_stained_glass_pane
+    53:
+      name: "§a加载存储"
+      material: item_frame
+      lore: "§7点击加载49号槽的萬象匱内容"
+      progressbar: true
+      material: glow_item_frame
+KOMUTECH_L_ZJ_終極合成台:
+  title: "{#1C1C1C}&l-{#3C3C3C}&l-{#5D5D5D}&l-{#7D7D7D}&l-{#9E9E9E}&l✦{#BEBEBE}&l✫{#DFDFDF}&l✬·{#FFFFFF}&l終極合成台·{#DFDFDF}&l✬{#BEBEBE}&l✫{#9E9E9E}&l✦{#7D7D7D}&l-{#5D5D5D}&l-{#3C3C3C}&l-{#1C1C1C}&l-"
+  script: "L_机器/終極合成台"
+  slots:
+    3-5:
+      name: "&f"
+      material: WHITE_STAINED_GLASS_PANE
+    12:
+      name: "&f"
+      material: WHITE_STAINED_GLASS_PANE
+    13:
+      name: "§e合成"
+      material: GREEN_STAINED_GLASS_PANE
+      lore:
+        - "§7点击合成"
+    14:
+      name: "&f"
+      material: WHITE_STAINED_GLASS_PANE
+    21-23:
+      name: "&f"
+      material: WHITE_STAINED_GLASS_PANE
+
+##                    走云川-原版
+##金元素展示
+KOMUTECH_L_ZYC1_走云川_金法则合成展示:
+  name: "&f&k.~&6&l&n金法则合成展示&f&k~."
+  slots:
+    45-48:
+      material: pink_stained_glass_pane
+    50-53:
+      material: pink_stained_glass_pane
+
+
+##土元素展示
+KOMUTECH_L_ZYC1_走云川_土法则合成展示:
+  name: "&f&k.~&6&l&n土法则合成展示&f&k~."
+  slots:
+    45-48:
+      material: pink_stained_glass_pane
+    50-53:
+      material: pink_stained_glass_pane
+
+##金元素
+#原材料
+KOMUTECH_L_ZYC1_走云川_铜锭1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_铜锭2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_铜锭3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_铜锭4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_铜锭5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC1_走云川_铁锭1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_铁锭2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_铁锭3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_铁锭4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_铁锭5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC1_走云川_金锭1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_金锭2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_金锭3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_金锭4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_金锭5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC1_走云川_下界合金锭1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_下界合金锭2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_下界合金锭3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_下界合金锭4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_下界合金锭5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+
+
+
+##土元素
+#自然方块
+KOMUTECH_L_ZYC1_走云川_草方块1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_草方块2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_草方块3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_草方块4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_草方块5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_泥土1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_泥土2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_泥土3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_泥土4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_泥土5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_黏土1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_黏土2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_黏土3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_黏土4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_黏土5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_沙砾1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_沙砾2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_沙砾3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_沙砾4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_沙砾5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_沙子1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_沙子2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_沙子3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_沙子4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_沙子5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_红沙1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_红沙2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_红沙3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_红沙4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_红沙5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_灵魂沙1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_灵魂沙2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_灵魂沙3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_灵魂沙4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_灵魂沙5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC1_走云川_灵魂土1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_灵魂土2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_灵魂土3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_灵魂土4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_灵魂土5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+
+#建筑方块
+KOMUTECH_L_ZYC1_走云川_石头1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_石头2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_石头3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_石头4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_石头5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC1_走云川_圆石1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_圆石2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_圆石3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_圆石4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_圆石5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_花岗岩1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_花岗岩2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_花岗岩3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_花岗岩4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_花岗岩5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_闪长岩1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_闪长岩2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_闪长岩3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_闪长岩4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_闪长岩5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_安山岩1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_安山岩2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_安山岩3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_安山岩4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_安山岩5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_深板岩1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_深板岩2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_深板岩3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_深板岩4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_深板岩5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC1_走云川_深板岩圆石1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_深板岩圆石2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_深板岩圆石3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_深板岩圆石4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_深板岩圆石5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC1_走云川_强化深板岩1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_强化深板岩2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_强化深板岩3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_强化深板岩4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_强化深板岩5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_凝灰岩1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_凝灰岩2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_凝灰岩3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_凝灰岩4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_凝灰岩5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_下界岩1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_下界岩2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_下界岩3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_下界岩4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_下界岩5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_黑石1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_黑石2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_黑石3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_黑石4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_黑石5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_玄武岩1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_玄武岩2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_玄武岩3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_玄武岩4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_玄武岩5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_末地石1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_末地石2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_末地石3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_末地石4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_末地石5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+
+
+#原材料
+KOMUTECH_L_ZYC1_走云川_燧石1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_燧石2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_燧石3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_燧石4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_燧石5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC1_走云川_煤炭1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_煤炭2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_煤炭3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_煤炭4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_煤炭5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC1_走云川_下界石英1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_下界石英2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_下界石英3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_下界石英4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_下界石英5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC1_走云川_青金石1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_青金石2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_青金石3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_青金石4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_青金石5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC1_走云川_红石粉1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_红石粉2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_红石粉3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_红石粉4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_红石粉5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC1_走云川_紫水晶碎片1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_紫水晶碎片2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_紫水晶碎片3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_紫水晶碎片4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_紫水晶碎片5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC1_走云川_绿宝石1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_绿宝石2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_绿宝石3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_绿宝石4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_绿宝石5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC1_走云川_钻石1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_钻石2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_钻石3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_钻石4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+Komutech_L_ZYC1_走云川_钻石5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+
+##                    走云川-粘液
+##金元素展示
+KOMUTECH_L_ZYC2_走云川_金法则合成展示:
+  name: "&f&k.~&6&l&n金法则合成展示&f&k~."
+  slots:
+    45-48:
+      material: pink_stained_glass_pane
+    50-53:
+      material: pink_stained_glass_pane
+
+##金元素
+KOMUTECH_L_ZYC2_走云川_铁粉1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铁粉2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铁粉3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铁粉4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铁粉5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_金粉1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_金粉2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_金粉3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_金粉4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_金粉5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铜粉1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铜粉2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铜粉3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铜粉4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铜粉5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锡粉1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锡粉2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锡粉3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锡粉4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锡粉5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_银粉1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_银粉2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_银粉3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_银粉4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_银粉5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铅粉1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铅粉2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铅粉3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铅粉4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铅粉5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铝粉1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铝粉2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铝粉3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铝粉4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铝粉5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锌粉1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锌粉2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锌粉3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锌粉4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锌粉5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_镁粉1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_镁粉2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_镁粉3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_镁粉4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_镁粉5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+
+KOMUTECH_L_ZYC2_走云川_铜锭1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铜锭2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铜锭3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铜锭4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铜锭5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锡锭1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锡锭2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锡锭3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锡锭4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锡锭5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_银锭1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_银锭2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_银锭3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_银锭4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_银锭5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铅锭1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铅锭2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铅锭3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铅锭4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铅锭5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铝锭1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铝锭2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铝锭3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铝锭4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_铝锭5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锌锭1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锌锭2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锌锭3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锌锭4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_锌锭5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_镁锭1:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_镁锭2:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_镁锭3:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_镁锭4:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
+KOMUTECH_L_ZYC2_走云川_镁锭5:
+  title: '{#ffecd2}&l❖{#ffdcc8}&l走{#fccbb5}&l云{#fcbba1}&l川{#fcb69f}&l❖'
+  slots:
+    0-3:
+      material: pink_stained_glass_pane
+    5-8:
+      material: pink_stained_glass_pane
+    45-48:
+      material: pink_stained_glass_pane
+    49:
+      name: '&f&l提示'
+      material_type: mc
+      material: jack_o_lantern
+      glow: true
+      lore:
+      - '&f上方为&d输出槽'
+    50-53:
+      material: pink_stained_glass_pane
