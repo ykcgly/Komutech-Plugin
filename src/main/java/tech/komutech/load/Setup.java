@@ -6,6 +6,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 import tech.komutech.KT;
 import tech.komutech.behavior.BlockDrops;
+import tech.komutech.listeners.SingleItemRecipeGuideListener;
 import tech.komutech.native_scripts.NativeScriptRegistry;
 import tech.komutech.native_scripts.support.KomutechAdminPassword;
 
@@ -50,6 +51,10 @@ public final class Setup {
         TemplateMachinesLoader.load();
         MultiBlockMachinesLoader.load();
         BlockDrops.register(KT.plugin);
+        // 单物品配方引导监听器：机器 GUI 里的「多物品输入 / 多物品输出」按钮由它接管点击，
+        // 打开配方展示界面。该类在构造函数里自行 registerEvents，因此只需实例化一次。
+        // 漏掉这行 = 按钮点击毫无反应（重构时整块缺失，是「多物品输入界面打不开」的根因）。
+        new SingleItemRecipeGuideListener();
         // 加载期缓存释放：解析树、头颅贴图、展示堆表（运行期均不再访问）
         Yaml.clearCache();
         Read.clearSkinCache();

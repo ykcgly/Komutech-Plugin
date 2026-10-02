@@ -3,6 +3,8 @@ package tech.komutech.native_scripts.menu;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuide;
+import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
+import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -28,6 +30,8 @@ import tech.komutech.native_scripts.support.KomutechMenuRouter;
 import tech.komutech.native_scripts.support.KomutechSupport;
 import tech.komutech.native_scripts.support.MenuGuiHelper;
 import tech.komutech.native_scripts.NativeLifecycleScript;
+import tech.komutech.objects.customs.LinkedOutput;
+import tech.komutech.objects.machine.CustomLinkedMachineRecipe;
 
 public final class ConvenienceRecipeMenuScript implements NativeLifecycleScript, KomutechMenuHandler {
    private static final String MAIN_TITLE = "§6口木科技便捷配方";
@@ -191,7 +195,16 @@ public final class ConvenienceRecipeMenuScript implements NativeLifecycleScript,
    private void openCategory(Player var1, String var2, int var3) {
       this.ensureCache();
       List var4 = this.cache.getOrDefault(var2, List.of());
-      if (!var4.isEmpty()) {
+      if (var4.isEmpty()) {
+         // 原实现在此直接返回：既不开界面也不给提示，玩家点分类按钮表现为「毫无反应」。
+         // 空分类多为「该机器还没在 content 里配 recipes」或CATEGORIES 里的机器 id 已改名，
+         // 给一句明确提示比静默失败好排查得多。
+         var1.sendMessage("§e该分类暂无可展示的产物（对应机器可能尚未配置 recipes）。");
+         var1.closeInventory();
+         return;
+      }
+
+      {
          ConvenienceRecipeMenuScript.Category var5 = CATEGORIES.stream().filter(var1x -> var1x.id().equals(var2)).findFirst().orElse(null);
          if (var5 != null) {
             int var6 = Math.max(1, (int)Math.ceil(var4.size() / 28.0));
@@ -279,29 +292,84 @@ public final class ConvenienceRecipeMenuScript implements NativeLifecycleScript,
       return Math.max(1, (int)Math.ceil(var2 / 28.0));
    }
 
+   /**
+    * 取某个机器的全部产物 id。
+    *
+    * <p>原实现只用 {@code getClass().getMethod("getMachineRecipes")} 反射。这里有个致命陷阱：
+    * {@code getMachineRecipes()} 定义在 {@code AContainer} 上而<b>不是</b> {@code SlimefunItem}，
+    * {@code getClass().getMethod(...)} 虽能找到继承来的public 方法，但当机器类型本身没有该方法时
+    * （如 MultiBlockMachine）会抛 NoSuchMethodException，而原代码是空 catch ——
+    * 于是产物集恒为空，{@code openCategory} 的 {@code if (!isEmpty())} 直接跳过，
+    * 表现为「点分类按钮毫无反应」。
+    *
+    * <p>现改为：先按类型判断（{@code CustomWorkbench} / {@code CustomRecipeMachine} 都继承
+    * {@code AContainer}，可直接调用），再对未知类型保留反射兜底。
+    *
+    * <p>产物不只在 {@code MachineRecipe.getOutput()}（自由输出槽）：
+    * 联动输出槽的产物存在 {@code CustomLinkedMachineRecipe.getLinkedOutput()}，
+    * 两条都要收集，否则联动机床的产物会整批漏掉。
+    */
    private static Set<String> parseOutputs(String var0) {
       HashSet var1 = new HashSet();
       SlimefunItem var2 = SlimefunItem.getById(var0);
       if (var2 == null) {
          return var1;
-      } else {
-         try {
-            if (var2.getClass().getMethod("getMachineRecipes").invoke(var2) instanceof Iterable var4) {
-               for (Object var6 : var4) {
-                  if (var6.getClass().getMethod("getOutput").invoke(var6) instanceof ItemStack[] var8) {
-                     for (ItemStack var12 : var8) {
-                        SlimefunItem var13 = SlimefunItem.getByItem(var12);
-                        if (var13 != null) {
-                           var1.add(var13.getId());
+      }
+
+      if (var2 instanceof AContainer var3) {
+         List var4 = var3.getMachineRecipes();
+         if (var4 != null) {
+            for (Object var5 : var4) {
+               if (var5 instanceof CustomLinkedMachineRecipe var6) {
+                  // 联动槽配方：自由输出 + 联动输出都要收
+                  addItems(var6.getOutput(), var1);
+
+                  LinkedOutput var7 = var6.getLinkedOutput();
+                  if (var7 != null) {
+                     addItems(var7.freeOutput(), var1);
+
+                     if (var7.linkedOutput() != null) {
+                        for (ItemStack var8 : var7.linkedOutput().values()) {
+                           addItem(var8, var1);
                         }
                      }
                   }
+               } else if (var5 instanceof MachineRecipe var9) {
+                  addItems(var9.getOutput(), var1);
                }
             }
-         } catch (ReflectiveOperationException var14) {
          }
+      } else {
+         try {
+            if (var2.getClass().getMethod("getMachineRecipes").invoke(var2) instanceof Iterable var10) {
+               for (Object var11 : var10) {
+                  if (var11 instanceof MachineRecipe var12) {
+                     addItems(var12.getOutput(), var1);
+                  }
+               }
+            }
+         } catch (ReflectiveOperationException var13) {
+            // 该机器类型不暴露机器配方（如 MultiBlockMachine），静默跳过
+         }
+      }
 
-         return var1;
+      return var1;
+   }
+
+   private static void addItems(ItemStack[] var0, Set<String> var1) {
+      if (var0 != null) {
+         for (ItemStack var2 : var0) {
+            addItem(var2, var1);
+         }
+      }
+   }
+
+   private static void addItem(ItemStack var0, Set<String> var1) {
+      if (var0 != null && !var0.getType().isAir()) {
+         SlimefunItem var2 = SlimefunItem.getByItem(var0);
+         if (var2 != null) {
+            var1.add(var2.getId());
+         }
       }
    }
 
