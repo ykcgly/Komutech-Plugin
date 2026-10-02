@@ -33,21 +33,21 @@ public class NativeScriptEval extends ScriptEval {
       return "java";
    }
 
-   @Override
-   public Object evalFunction(String var1, Object... var2) {
-      if ("init".equals(var1)) {
-         if (this.script instanceof NativeLifecycleScript var3) {
-            Plugin var5 = NativePluginHelper.getPlugin();
-            if (var5 != null) {
-               var3.registerLifecycle(var5);
+    @Override
+    public Object evalFunction(String var1, Object... var2) {
+        if ("init".equals(var1)) {
+            if (this.script instanceof NativeLifecycleScript var3) {
+                Plugin var5 = NativePluginHelper.getPlugin();
+                // 走幂等入口：同一脚本实例可能被多条 yml 引用而多次 doInit，
+                // 若每次都真正注册，PuTuanScript 等会重复 registerEvents。
+                NativeLifecycle.registerLifecycleOnce(var3, var5);
             }
-         }
 
-         return null;
-      } else {
-         return this.script.invoke(var1, var2);
-      }
-   }
+            return null;
+        } else {
+            return this.script.invoke(var1, var2);
+        }
+    }
 
    @Override
    public void close() {
