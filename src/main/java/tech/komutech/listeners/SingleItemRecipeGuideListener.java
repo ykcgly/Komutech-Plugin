@@ -312,9 +312,29 @@ public class SingleItemRecipeGuideListener implements Listener {
             CustomItemStack var23 = new CustomItemStack(var8, var37, new String[0]);
             this.addItem(var7, var23, SingleItemRecipeGuideListener::viewItem);
          }
+
+         // 大型配方（绑定槽超过 9 个，3x3 原生页放不下）改走分页展示菜单。
+         // 原实现把 linkedInput 的 key 直接当 GUI 槽位传给 addItem，槽号 >= 54 时
+         // 会静默丢失（实测 275 个配方受影响，最多的 Komutech_L_DFKJQ_ZLT 有 242 槽），
+         // 玩家看到的配方是残缺的。这里记下改道目标，open() 时改开 BigRecipeMenu。
+         // var3 是构造器传入的配方下标，var1 是机器容器。
+         if (var3 >= 0 && var3 < var1.getMachineRecipes().size()
+            && var1.getMachineRecipes().get(var3) instanceof CustomLinkedMachineRecipe largeLinked
+            && BigRecipeMenu.isLargeRecipe(largeLinked)) {
+            this.largeRedirect = largeLinked;
+         }
       }
 
+      /** 大型配方改道目标；非 null 时 {@link #open} 改开 BigRecipeMenu。 */
+      private CustomLinkedMachineRecipe largeRedirect;
+
       public void open(Player... var1) {
+         // 大型配方：改开分页展示菜单，避免槽号 >= 54 的材料被静默丢弃
+         if (this.largeRedirect != null && var1.length > 0) {
+            BigRecipeMenu.open(var1[0], this.largeRedirect);
+            return;
+         }
+
          super.open(var1);
          if (!this.recipeTask.isEmpty()) {
             this.recipeTask.start(this.toInventory());
