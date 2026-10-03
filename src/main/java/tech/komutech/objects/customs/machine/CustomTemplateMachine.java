@@ -15,7 +15,6 @@ import io.github.thebusybiscuit.slimefun4.implementation.handlers.SimpleBlockBre
 import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.Validate;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.inventory.InvUtils;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import io.github.thebusybiscuit.slimefun4.utils.itemstack.ItemStackWrapper;
 import it.unimi.dsi.fastutil.ints.IntList;
 import java.util.ArrayList;
@@ -40,6 +39,7 @@ import tech.komutech.objects.machine.CustomMachineRecipe;
 import tech.komutech.objects.machine.CustomTemplateCraftingOperation;
 import tech.komutech.objects.machine.MachineTemplate;
 import tech.komutech.util.CommonUtils;
+import tech.komutech.util.FastItemMatch;
 import tech.komutech.util.ItemUtils;
 import tech.komutech.util.MachineOutputHelper;
 
@@ -57,6 +57,7 @@ public class CustomTemplateMachine extends AbstractEmptyMachine<CustomTemplateCr
    private final boolean hideAllRecipes;
    private final int[] inputSlotArray;
    private final int[] outputSlotArray;
+   private final Map<Material, List<MachineTemplate>> templatesByMaterial;
 
    public CustomTemplateMachine(
       ItemGroup var1,
@@ -87,6 +88,18 @@ public class CustomTemplateMachine extends AbstractEmptyMachine<CustomTemplateCr
       this.hideAllRecipes = var14;
       this.inputSlotArray = var6.stream().mapToInt(Integer::intValue).toArray();
       this.outputSlotArray = var7.stream().mapToInt(Integer::intValue).toArray();
+      // 模板按材质索引：tick 里槽位物品的材质已知的先验条件下，把
+      // 「每台机器 × 每个模板」的全量比对收敛到同材质的少数候选。
+      // 模板物品材质各不相同（均为注册物品），索引后通常只剩 0~1 个候选；
+      // 同材质多模板时仍按原顺序遍历，匹配语义不变（材质是硬条件，跨材质不可能命中）。
+      Map<Material, List<MachineTemplate>> byMaterial = new HashMap<>();
+      for (MachineTemplate t : var9) {
+         if (t != null && t.spec() != null) {
+            byMaterial.computeIfAbsent(t.spec().material(), k -> new ArrayList<>()).add(t);
+         }
+      }
+
+      this.templatesByMaterial = byMaterial;
       this.createPreset(this, var2x -> {
          var5.registerInteractableSlots(this.inputSlotArray);
          var5.registerInteractableSlots(this.outputSlotArray);
@@ -235,7 +248,9 @@ public class CustomTemplateMachine extends AbstractEmptyMachine<CustomTemplateCr
                }
             }
          } else {
-            for (MachineTemplate var13 : this.templates) {
+            // 按材质取候选模板（材质是匹配的硬条件，跨材质不可能命中），
+            // 免去每 tick 对全部模板逐一做物品比较
+            for (MachineTemplate var13 : this.templatesByMaterial.getOrDefault(var5.getType(), List.of())) {
                if (var13.isItemSimilar(var5)) {
                   CustomMachineRecipe var15 = this.findNextRecipe(var13, var4);
                   if (var15 != null) {
@@ -297,13 +312,17 @@ public class CustomTemplateMachine extends AbstractEmptyMachine<CustomTemplateCr
       for (CustomMachineRecipe var21 : var3) {
          LinkedHashMap var23 = new LinkedHashMap();
          if (var21.getInput().length != 0) {
-            for (ItemStack var12 : var21.getInput()) {
-               for (int var16 : this.inputSlotArray) {
-                  if (!var23.containsKey(var16)) {
-                     ItemStackWrapper var17 = (ItemStackWrapper)var4.get(var16);
-                     if (var17 != null && SlimefunUtils.isItemSimilar(var17, var12, true)) {
-                        var23.put(var16, var12.getAmount());
-                        break;
+            for (int var2b = 0; var2b < var21.getInput().length; var2b++) {
+               ItemStack var12 = var21.getInput()[var2b];
+               FastItemMatch.Spec var12Spec = var21.inputSpecs()[var2b];
+               if (var12Spec != null) {
+                  for (int var16 : this.inputSlotArray) {
+                     if (!var23.containsKey(var16)) {
+                        ItemStackWrapper var17 = (ItemStackWrapper)var4.get(var16);
+                        if (var17 != null && FastItemMatch.matches(var17, var12Spec, true)) {
+                           var23.put(var16, var12.getAmount());
+                           break;
+                        }
                      }
                   }
                }

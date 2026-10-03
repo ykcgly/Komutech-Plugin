@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe;
 import org.bukkit.inventory.ItemStack;
+import tech.komutech.util.FastItemMatch;
 
 public class CustomMachineRecipe extends MachineRecipe {
    private final List<Integer> chances;
@@ -71,4 +72,26 @@ public class CustomMachineRecipe extends MachineRecipe {
    public boolean isHide() {
       return this.hide;
    }
+
+   /**
+    * 输入堆的预解析匹配规格（懒加载缓存）：getInput() 在注册后不再变化，
+    * 每个 Spec 只需解析一次，供模板机器每 tick 的输入比对复用——
+    * 避免每次比较都走 SlimefunUtils.isItemSimilar 的全注册表扫描。
+    */
+   public FastItemMatch.Spec[] inputSpecs() {
+      FastItemMatch.Spec[] s = this.inputSpecs;
+      if (s == null) {
+         ItemStack[] in = this.getInput();
+         s = new FastItemMatch.Spec[in.length];
+         for (int i = 0; i < in.length; i++) {
+            s[i] = FastItemMatch.Spec.of(in[i]);
+         }
+
+         this.inputSpecs = s;
+      }
+
+      return s;
+   }
+
+   private volatile FastItemMatch.Spec[] inputSpecs;
 }
