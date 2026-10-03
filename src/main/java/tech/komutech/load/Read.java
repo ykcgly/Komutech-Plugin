@@ -118,12 +118,15 @@ public final class Read {
             }
             case "slimefun": {
                 String id = KT.upper(material);
-                ItemStack pre = KT.preload.get(id);
-                if (pre != null) return apply(pre.clone(), name, lore);
+                // 已注册：直接取注册堆（自带 id PDC——指南跳转、getByItem 归属识别、
+                // 玩家从指南扣下的物品查询全靠它）
                 SlimefunItem sf = SlimefunItem.getById(id);
                 if (sf != null) return apply(sf.getItem().clone(), name, lore);
-                // 前向引用（目标尚未注册）：包一层补上 id PDC，等价于注册后的堆
-                if (pre != null) return new SlimefunItemStack(id, pre);
+                // 前向引用（目标尚未注册）：包一层补上 id PDC，等价于注册后的堆。
+                // 不能直接返回 pre 的普通克隆——没有 id PDC 的材料堆在任何配方展示里
+                // 都解析不出归属（实测「些许空间法则」等物品点材料不跳转、扣下无 sfid）。
+                ItemStack pre = KT.preload.get(id);
+                if (pre != null) return new SlimefunItemStack(id, apply(pre.clone(), name, lore));
                 MissingItems.record(id);
                 return new CustomItemStack(Material.STONE, name, lore);
             }

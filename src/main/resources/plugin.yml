@@ -1,5 +1,5 @@
 name: Komutech
-version: 3.0.1-standalone
+version: 3.0.2-standalone
 main: tech.komutech.KomutechPlugin
 api-version: 1.21
 description: 口木科技 —— 独立 Slimefun 附属（由 RSC 脚本版重构为原生 Java 加载）

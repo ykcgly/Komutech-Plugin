@@ -53,6 +53,9 @@ public final class JegBridge {
 
    private static volatile Boolean jegInstalled = null;
 
+   /** 诊断开关：true 时跳转链路的每次进出都打 INFO 日志，日常运行保持 false。 */
+   public static boolean DEBUG = false;
+
    private JegBridge() {
    }
 
@@ -75,6 +78,11 @@ public final class JegBridge {
     * 本类不做任何分支。之所以还要保留返回值，是为了让调用方能在
     * 「PlayerProfile 取不到」时决定是否回退。
     *
+    * <p><b>原版材料同样支持</b>：无 Slimefun 身份的材料（末影之眼、钻石等）经
+    * {@link SlimefunGuide#displayItem(PlayerProfile, ItemStack, boolean)} 的 ItemStack 重载
+    * 路由，JEG 会展示其原版合成配方页（该物品没有任何原版配方时 JEG 静默，属正常现象）。
+    * 之前直接对原版材料返回 false，是「点材料毫无反应」的根因之一。
+    *
     * @return true 表示已成功打开
     */
    public static boolean displayItem(Player player, ItemStack item) {
@@ -84,24 +92,35 @@ public final class JegBridge {
 
       // 还原成 SlimefunItem：附属物品必须靠它才能定位 ItemGroup 与配方
       SlimefunItem sfItem = SlimefunItem.getByItem(item);
-      if (sfItem == null) {
-         // 原版材料（无 Slimefun 归属）在指南里没有页面，直接不动
-         return false;
-      }
 
       Optional<PlayerProfile> found = PlayerProfile.find(player);
       if (found.isEmpty()) {
+         debug("跳转放弃: 玩家无 PlayerProfile, item=" + item.getType());
          return false;
       }
 
       try {
-         // 关键：走 Slimefun 的静态入口，它内部查注册表 → 装了 JEG 自动是 JEG 实现
-         SlimefunGuide.displayItem(found.get(), sfItem, true);
+         if (sfItem != null) {
+            // 关键：走 Slimefun 的静态入口，它内部查注册表 → 装了 JEG 自动是 JEG 实现
+            SlimefunGuide.displayItem(found.get(), sfItem, true);
+            debug("跳转(粘液物品): " + sfItem.getId());
+         } else {
+            // 原版材料：同样走静态入口，JEG 的 ItemStack 路径展示原版配方页
+            SlimefunGuide.displayItem(found.get(), item, true);
+            debug("跳转(原版物品): " + item.getType() + "（该物品无原版配方时 JEG 静默）");
+         }
+
          return true;
       } catch (RuntimeException ex) {
          // 不静默吞：兼容层出问题必须留日志，否则线上只表现为「点了没反应」
-         warn("打开物品配方页失败: " + sfItem.getId(), ex);
+         warn("打开物品配方页失败: " + (sfItem != null ? sfItem.getId() : item.getType()), ex);
          return false;
+      }
+   }
+
+   private static void debug(String msg) {
+      if (DEBUG) {
+         Bukkit.getLogger().info("[JEG-诊断] " + msg);
       }
    }
 

@@ -19,7 +19,7 @@ Komutech_JZ_XX_BB:
     name: '&e版本号'
     lore:
       - '&f当前口木科技版本：'
-      - '{#FFC1E0}小丑众特供Jar版本-Release-3.0.1'
+      - '{#FFC1E0}Release-3.0.2'
     material_type: mc
     material: PAPER
     amount: 1
@@ -64,7 +64,7 @@ Komutech_L_XX_ZZ:
     lore:
       - '{#2DFBAE}❖{#5AFCC2}   灵   {#86FDD7}❖'
       - '{#5AFCC2}│{#86FDD7} 作者 {#B3FEEB}· Komu_A'
-      - '{#86FDD7}│{#B3FEEB} 目前进度 {#E0FFFF}· 进行中'
+      - '{#86FDD7}│{#B3FEEB} 目前进度 {#E0FFFF}· 跑路了兄弟跑路了'
       - '{#B3FEEB}└─{#E0FFFF} 联系方式 {#00FA9A}· QQ:2819696145'
     material_type: mc
     material: 2a06b7ef30db3cd6a869e015e59913e4dfc9212688c281fab18b1f2938fc9f42
@@ -168,6 +168,26 @@ Komutech_L_XX_GX4:
       - '{#2AF598}╰─✦{#2AF598} 亘古唯一 · 永世存不朽{#2AF598}✦─╯'
       - '{#2AF598}        - Sprite自混沌中苏醒 -'
       - '              &8觉醒了中二魂'
+    material_type: mc
+    material: 1c9324853bb2da056f67b02d5d19c7fe41de01239d3bf8018496efec0fabbf6f
+    amount: 1
+    glow: true
+  placeable: false
+  recipe_type: 'NULL'
+Komutech_YKCGLY:
+  lateInit: false
+  item_group: Komutech_L_XX
+  item:
+    name: '&a维护者&d养坤场管理员(MC:ykcgly)'
+    lore:
+      - '&abyd之前那个口木jar要是单独安装那就是个只加载口木的rsc'
+      - '&a装了rsc它就会给内置的口木rsc版直接解压到addons'
+      - '&a令人哭笑不得（钢管落地）'
+      - '&a搞半天由我转成了正版jar'
+      - "&a也修复了大量bug"
+      - "&e注意：jar附属和rsc附属不同"
+      - "&a如果在游玩jar版附属时遇到问题，请直接找我反馈反馈"
+      - "&aQQ:1424136122"
     material_type: mc
     material: 1c9324853bb2da056f67b02d5d19c7fe41de01239d3bf8018496efec0fabbf6f
     amount: 1
@@ -1828,7 +1848,7 @@ Komutech_L_DJ_蕴灵身:
       lore:
         - "&f右键使用扣除&c99%的生命获取。"
         - "&f注意&a血量&f别被抽干了。"
-    5:
+    8:
       material_type: slimefun
       material: Komutech_L_DJ_无垢坯
 

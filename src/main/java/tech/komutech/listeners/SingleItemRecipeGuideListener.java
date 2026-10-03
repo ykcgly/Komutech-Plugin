@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Map.Entry;
+import java.util.UUID;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
@@ -51,6 +52,44 @@ public class SingleItemRecipeGuideListener implements Listener {
    private static final NamespacedKey RECIPE_INDEX_KEY = new NamespacedKey(KT.plugin(), "rsc_recipe_index");
    private static final NamespacedKey RECIPE_TEMPLATE_INDEX_KEY = new NamespacedKey(KT.plugin(), "rsc_recipe_template_index");
 
+   /** 同一玩家最近一次标记配方页打开记录（JEG 指南里同一点击会先后来两条事件）。 */
+   private record LastOpen(String key, long at) {}
+
+   private static final Map<UUID, LastOpen> LAST_TAGGED_OPEN = new java.util.concurrent.ConcurrentHashMap<>();
+
+   /** 大型配方机器打开去重：JEG 事件路径与 InventoryClickEvent 兜底路径会对同一次点击先后触发。 */
+   private static final Map<UUID, LastOpen> LAST_MACHINE_OPEN = new java.util.concurrent.ConcurrentHashMap<>();
+
+   /**
+    * 100ms 内同玩家同机器重复打开视为同一点击的重复分发，应跳过（返回 false）。
+    * 返回 true 表示本次调用获得了打开许可。
+    */
+   public static boolean markMachineOpen(Player var0, SlimefunItem var1) {
+      String var2 = "machine:" + var1.getId();
+      long var3 = System.currentTimeMillis();
+      LastOpen var5 = LAST_MACHINE_OPEN.put(var0.getUniqueId(), new LastOpen(var2, var3));
+      return !(var5 != null && var5.key().equals(var2) && var3 - var5.at() < 100);
+   }
+
+   /**
+    * 100ms 内同玩家同标记重复打开视为同一点击的重复分发，应跳过。
+    *
+    * <p>JEG 指南中点击「多物品输入」面板时，{@code GuideEvents.ItemButtonClickEvent}
+    * 与 {@code InventoryClickEvent} 会在同一次点击里先后到达（JEG 的 ChestMenu 点击链
+    * 与本插件的监听器各自独立触发），不去重会把同一配方页构建并打开两次。</p>
+    */
+   private static boolean isDuplicateOpen(Player var0, SlimefunItem var1, ItemStack var2) {
+      ItemMeta var3 = var2.getItemMeta();
+      PersistentDataContainer var4 = var3.getPersistentDataContainer();
+      String var5 = var1.getId()
+         + ":" + var4.get(RECIPE_KEY, PersistentDataType.INTEGER)
+         + ":" + var4.get(RECIPE_INDEX_KEY, PersistentDataType.INTEGER)
+         + ":" + var4.get(RECIPE_TEMPLATE_INDEX_KEY, PersistentDataType.INTEGER);
+      long var6 = System.currentTimeMillis();
+      LastOpen var8 = LAST_TAGGED_OPEN.put(var0.getUniqueId(), new LastOpen(var5, var6));
+      return var8 != null && var8.key().equals(var5) && var6 - var8.at() < 100;
+   }
+
    public SingleItemRecipeGuideListener() {
       Bukkit.getPluginManager().registerEvents(this, KT.plugin());
    }
@@ -69,6 +108,7 @@ public class SingleItemRecipeGuideListener implements Listener {
          && var6 >= 0
          && (var4 = var8.getItem(16)) != null
          && (var3 = SlimefunItem.getByItem(var4)) != null
+         && !isDuplicateOpen(var7, var3, var9)
          && (var2 = this.createGUI(var7, var3, var9.getItemMeta())) != null) {
          var2.open(new Player[]{var7});
       }
@@ -79,6 +119,55 @@ public class SingleItemRecipeGuideListener implements Listener {
          PersistentDataContainer var1 = var0.getItemMeta().getPersistentDataContainer();
          return var1.getKeys().contains(RECIPE_KEY) && var1.getKeys().contains(RECIPE_INDEX_KEY);
       } else {
+         return false;
+      }
+   }
+
+   /**
+    * JEG 事件路径用的标记判定（语义同 {@link #isTaggedItem}，公开给 jeg 包）。
+    */
+   public static boolean isTaggedRecipeItem(ItemStack var0) {
+      return isTaggedItem(var0);
+   }
+
+   /** 标记的配方种类（1 普通 / 2 模板 / 3 联动 / 4 工作台），无标记返回 -1。 */
+   public static int tagKind(ItemStack var0) {
+      if (!isTaggedItem(var0)) {
+         return -1;
+      }
+
+      return var0.getItemMeta().getPersistentDataContainer().get(RECIPE_KEY, PersistentDataType.INTEGER) != null
+         ? var0.getItemMeta().getPersistentDataContainer().get(RECIPE_KEY, PersistentDataType.INTEGER)
+         : -1;
+   }
+
+   /**
+    * 打开带 PDC 标记物品对应的配方展示页（JEG 指南「多物品输入/输出」面板入口）。
+    *
+    * @param tagged  带 RECIPE_KEY / RECIPE_INDEX_KEY 标记的点击物品
+    * @param machine 该标记所属的机器（由调用方从指南菜单反查）
+    * @return true 表示已打开（调用方应视点击为已处理）
+    */
+   public static boolean openTaggedRecipe(Player player, ItemStack tagged, SlimefunItem machine) {
+      if (!isTaggedItem(tagged) || machine == null) {
+         return false;
+      }
+
+      // JEG 路径与 InventoryClickEvent 路径可能对同一次点击先后触发，去重
+      if (isDuplicateOpen(player, machine, tagged)) {
+         return true;
+      }
+
+      try {
+         ChestMenu menu = createGUI(player, machine, tagged.getItemMeta());
+         if (menu == null) {
+            return false;
+         }
+
+         menu.open(new Player[]{player});
+         return true;
+      } catch (RuntimeException ex) {
+         org.bukkit.Bukkit.getLogger().warning("[JEG] 打开标记配方页失败: " + ex);
          return false;
       }
    }
@@ -143,7 +232,7 @@ public class SingleItemRecipeGuideListener implements Listener {
       return var0;
    }
 
-   private ChestMenu createGUI(Player var1, SlimefunItem var2, PersistentDataHolder var3) {
+   private static ChestMenu createGUI(Player var1, SlimefunItem var2, PersistentDataHolder var3) {
       int var4 = PersistentDataAPI.getInt(var3, RECIPE_KEY, 1);
       if (var2 instanceof AContainer var5 && var4 == 1) {
          int var13 = PersistentDataAPI.getInt(var3, RECIPE_INDEX_KEY, 0);

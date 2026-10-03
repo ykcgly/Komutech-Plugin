@@ -6,6 +6,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 import tech.komutech.KT;
 import tech.komutech.behavior.BlockDrops;
+import tech.komutech.jeg.JegGuideListener;
 import tech.komutech.listeners.SingleItemRecipeGuideListener;
 import tech.komutech.listeners.XuanTiePortalListener;
 import tech.komutech.native_scripts.NativeScriptRegistry;
@@ -60,6 +61,9 @@ public final class Setup {
         // 该监听器用 Player#breakBlock 以玩家身份走完整流程，好让 drop_from: nether_portal
         // 掉落生效。同样在构造函数里自注册，只需实例化。
         new XuanTiePortalListener();
+        // JEG 指南点击拦截：指南里点「多物品输入」面板直达配方页、点大型配方机器
+        // 打开 BigRecipeMenu 完整视图。仅当检测到 JEG 时才注册（jeg 包内自检）。
+        JegGuideListener.register();
         // 加载期缓存释放：解析树、头颅贴图、展示堆表（运行期均不再访问）
         Yaml.clearCache();
         Read.clearSkinCache();
