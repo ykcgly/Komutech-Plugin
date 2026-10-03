@@ -16,6 +16,7 @@ import org.bukkit.inventory.ItemStack;
 import tech.komutech.listeners.BigRecipeMenu;
 import tech.komutech.listeners.SingleItemRecipeGuideListener;
 import tech.komutech.native_scripts.support.JegBridge;
+import tech.komutech.objects.slimefun.ItemGroupButton;
 import tech.komutech.objects.customs.machine.CustomLinkedRecipeMachine;
 import tech.komutech.objects.customs.machine.CustomRecipeMachine;
 import tech.komutech.objects.customs.machine.CustomTemplateMachine;
@@ -135,10 +136,41 @@ public final class JegGuideListener implements Listener {
         }
     }
 
+    /**
+     * JEG 指南中点击物品组按钮（37 个 button 组：下载链接 / 控制台命令 / 跳转组 /
+     * 展示物品 / 脚本）。按钮组的 {@link ItemGroupButton#run} 原本只挂在
+     * vanilla 指南的渲染路径上，JEG 接管嵌套组渲染后点击走的是 JEG 自己的
+     * 组打开逻辑（打开空组），actions 永远不执行——这里补上 JEG 路径的分发。
+     */
+    @EventHandler(ignoreCancelled = true)
+    public void onGroupButtonClick(GuideEvents.ItemGroupButtonClickEvent e) {
+        try {
+            if (e.getGuide().getMode() != SlimefunGuideMode.SURVIVAL_MODE) {
+                return;
+            }
+
+            ItemStack clicked = e.getClickedItem();
+            if (clicked == null || clicked.getType().isAir()) {
+                return;
+            }
+
+            ItemGroupButton button = ItemGroupButton.getByDisplayItem(clicked);
+            if (button == null) {
+                return;
+            }
+
+            // 取消后 JEG 视为「点击已处理」，不再打开按钮组背后的空物品组
+            e.setCancelled(true);
+            debug("命中物品组按钮: " + button.getKey().getKey());
+            button.run(e.getPlayer(), e.getClickedSlot(), clicked, e.getClickAction(), SlimefunGuideMode.SURVIVAL_MODE);
+        } catch (Throwable t) {
+            debug("物品组按钮事件处理异常: " + t);
+        }
+    }
+
     // ------------------------------------------------------------------
     // 兜底路径：InventoryClickEvent（JEG 事件未派发时仍可拦截）
     // ------------------------------------------------------------------
-
     /**
      * 兜底拦截：仅处理「裸 ChestMenu 界面」里的点击。
      *

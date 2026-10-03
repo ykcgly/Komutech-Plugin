@@ -8,7 +8,9 @@ import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideImplementation;
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import net.md_5.bungee.api.ChatColor;
@@ -19,6 +21,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.Nullable;
 import tech.komutech.script.ScriptEval;
 import tech.komutech.util.colors.CMIChatColor;
@@ -30,9 +33,39 @@ import tech.komutech.util.ExceptionHandler;
 public class ItemGroupButton extends SubItemGroup {
    private final List<String> actions;
 
+   /** 全部已注册的按钮组：JEG 指南点击时按展示图标反查（JEG 的事件只带点击堆不带组对象）。 */
+   private static final List<ItemGroupButton> INSTANCES = new ArrayList<>();
+
+   /** 按钮的展示图标（构造传入的副本），用于反查匹配。 */
+   private final ItemStack display;
+
    public ItemGroupButton(NamespacedKey var1, NestedItemGroup var2, ItemStack var4, int var5, @Nullable List<String> var6) {
       super(var1, var2, var4, var5);
       this.actions = var6;
+      this.display = var4.clone();
+      INSTANCES.add(this);
+   }
+
+   /**
+    * 按点击堆反查按钮组。JEG 的 ItemGroupButtonClickEvent 只携带点击到的图标堆，
+    * 不携带组对象，只能按「材质 + 显示名」匹配（按钮组图标名各不相同）。
+    * 图标可能被 JEG 的 PatchScope 复制过，故不要求整堆相似。
+    */
+   public static ItemGroupButton getByDisplayItem(ItemStack clicked) {
+      if (clicked == null || !clicked.hasItemMeta()) {
+         return null;
+      }
+
+      String name = clicked.getItemMeta().getDisplayName();
+      for (ItemGroupButton b : INSTANCES) {
+         ItemMeta meta = b.display.getItemMeta();
+         if (meta != null && b.display.getType() == clicked.getType()
+            && Objects.equals(meta.getDisplayName(), name)) {
+            return b;
+         }
+      }
+
+      return null;
    }
 
    public void run(Player var1, int var2, ItemStack var3, ClickAction var4, SlimefunGuideMode var5) {
