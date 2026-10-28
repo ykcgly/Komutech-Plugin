@@ -1,10 +1,7 @@
 package tech.komutech.native_scripts.storage;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.LinkOption;
+import java.io.File;
 import java.nio.file.Path;
 import java.text.Collator;
 import java.util.ArrayList;
@@ -13,9 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
 import java.util.TreeSet;
-import java.util.stream.Stream;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -26,6 +21,7 @@ import tech.komutech.native_scripts.support.KomutechAddonConfig;
 import tech.komutech.native_scripts.support.KomutechAdminPassword;
 import tech.komutech.native_scripts.support.KomutechJson;
 import tech.komutech.native_scripts.support.KomutechPaths;
+import tech.komutech.util.Store;
 
 public final class WanXiangGuiStorage {
    public static final String STORAGE_ID = "KOMUTECH_L_ZJ_萬象匱";
@@ -140,38 +136,35 @@ public final class WanXiangGuiStorage {
       }
    }
 
+   /**
+    * 读一份萬象匱存储。
+    *
+    * <p>后端优先 SQLite（{@link Store}）；库里没有时回落同名 JSON 并顺手入库。
+    * 两边都没有返回 {@link #emptyData()}，与原来的「文件不存在」语义一致。</p>
+    */
    public static Map<String, Object> read(String var0, String var1) {
       var1 = resolveStorageName(var0, var1);
-      Path var2 = filePath(var0, var1);
-      if (!Files.exists(var2, new LinkOption[0])) {
+      Map<String, Object> var3 = KomutechPaths.readJson(filePath(var0, var1).toFile());
+      if (var3 == null) {
          return emptyData();
       } else {
-         try {
-            Map var3 = KomutechJson.asMap(KomutechJson.parse(Files.readString(var2, StandardCharsets.UTF_8)));
-            if (!var3.containsKey("meta")) {
-               var3.put("meta", Map.of("page", "1", "mode", "normal", "kw", ""));
-            }
-
-            if (!var3.containsKey("pages")) {
-               var3.put("pages", Map.of("1", emptyPage()));
-            }
-
-            normalizePages(var3);
-            return var3;
-         } catch (RuntimeException | IOException var4) {
-            return emptyData();
+         if (!var3.containsKey("meta")) {
+            var3.put("meta", Map.of("page", "1", "mode", "normal", "kw", ""));
          }
+
+         if (!var3.containsKey("pages")) {
+            var3.put("pages", Map.of("1", emptyPage()));
+         }
+
+         normalizePages(var3);
+         return var3;
       }
    }
 
+   /** 写一份萬象匱存储（进 SQLite 文档库；库不可用时回落文件）。 */
    public static void write(String var0, String var1, Map<String, Object> var2) {
-      try {
-         var1 = resolveStorageName(var0, var1);
-         Files.createDirectories(dataDir());
-         Files.writeString(filePath(var0, var1), KomutechJson.stringify(var2), StandardCharsets.UTF_8);
-      } catch (IOException var4) {
-      }
-
+      var1 = resolveStorageName(var0, var1);
+      KomutechPaths.writeJson(filePath(var0, var1).toFile(), var2);
    }
 
    private static boolean storageNameEquals(String var0, String var1) {
@@ -472,93 +465,61 @@ public final class WanXiangGuiStorage {
       return listStorages(var0).size();
    }
 
+   /** 存储是否存在（查 SQLite；库不可用时查磁盘文件）。 */
    public static boolean storageFileExists(String var0, String var1) {
-      return Files.exists(filePath(var0, var1), new LinkOption[0]);
+      return KomutechPaths.docExists(filePath(var0, var1).toFile());
    }
 
+   /**
+    * 列出某玩家的存储名。
+    *
+    * <p>走 {@link KomutechPaths#listDocs}：库里的键与盘上尚未入库的旧文件合并去重，
+    * 迁移期间不会漏。</p>
+    */
    public static List<String> listStorages(String var0) {
-      ArrayList var1 = new ArrayList();
+      ArrayList<String> var1 = new ArrayList();
+      String var3 = "[" + var0 + "]";
 
-      try {
-         Path var2 = dataDir();
-         if (!Files.isDirectory(var2, new LinkOption[0])) {
-            return var1;
+      for (File var4 : KomutechPaths.listDocs(dataDir().toFile())) {
+         String var5 = var4.getName();
+         if (var5.startsWith(var3) && var5.endsWith(".json")) {
+            var1.add(var5.substring(var3.length(), var5.length() - 5));
          }
-
-         String var3 = "[" + var0 + "]";
-         Stream<Path> var4 = Files.list(var2);
-
-         try {
-            Stream var10000 = var4.filter((var0x) -> Files.isRegularFile(var0x, new LinkOption[0])).map((var0x) -> var0x.getFileName().toString()).filter((var1x) -> var1x.startsWith(var3) && var1x.endsWith(".json")).map((var1x) -> var1x.substring(var3.length(), var1x.length() - 5));
-            Objects.requireNonNull(var1);
-            var10000.forEach(var1::add);
-         } catch (Throwable var8) {
-            if (var4 != null) {
-               try {
-                  var4.close();
-               } catch (Throwable var7) {
-                  var8.addSuppressed(var7);
-               }
-            }
-
-            throw var8;
-         }
-
-         if (var4 != null) {
-            var4.close();
-         }
-      } catch (IOException var9) {
       }
 
       return var1;
    }
 
+   /** 列出全部有存储的玩家名（库 + 盘上旧文件）。 */
    public static List<String> listAllPlayers() {
-      TreeSet var0 = new TreeSet();
+      TreeSet<String> var0 = new TreeSet();
 
-      try {
-         Path var1 = dataDir();
-         if (!Files.isDirectory(var1, new LinkOption[0])) {
-            return List.of();
+      for (File var2 : KomutechPaths.listDocs(dataDir().toFile())) {
+         String var3 = var2.getName();
+         if (var3.startsWith("[") && var3.contains("]") && var3.endsWith(".json")) {
+            var0.add(var3.substring(1, var3.indexOf(93)));
          }
-
-         Stream<Path> var2 = Files.list(var1);
-
-         try {
-            Stream var10000 = var2.filter((var0x) -> Files.isRegularFile(var0x, new LinkOption[0])).map((var0x) -> var0x.getFileName().toString()).filter((var0x) -> var0x.startsWith("[") && var0x.contains("]") && var0x.endsWith(".json")).map((var0x) -> var0x.substring(1, var0x.indexOf(93)));
-            Objects.requireNonNull(var0);
-            var10000.forEach(var0::add);
-         } catch (Throwable var6) {
-            if (var2 != null) {
-               try {
-                  var2.close();
-               } catch (Throwable var5) {
-                  var6.addSuppressed(var5);
-               }
-            }
-
-            throw var6;
-         }
-
-         if (var2 != null) {
-            var2.close();
-         }
-      } catch (IOException var7) {
       }
 
       return new ArrayList(var0);
    }
 
+   /**
+    * 重命名存储：读旧键 → 写新键 → 删旧键（原来是 {@code Files.move}，库里没有
+    * 「移动」这个概念，只能这样等价实现）。
+    */
    public static boolean renameStorage(String var0, String var1, String var2) {
       if (isValidStorageName(var2) && !storageFileExists(var0, var2)) {
-         Path var3 = filePath(var0, var1);
-         Path var4 = filePath(var0, var2);
-
-         try {
-            Files.move(var3, var4);
-            return true;
-         } catch (IOException var6) {
+         File var3 = filePath(var0, var1).toFile();
+         File var4 = filePath(var0, var2).toFile();
+         Map<String, Object> var5 = KomutechPaths.readJson(var3);
+         if (var5 == null) {
             return false;
+         } else if (!KomutechPaths.writeJson(var4, var5)) {
+            return false;
+         } else {
+            KomutechPaths.deleteDoc(var3);
+            return true;
          }
       } else {
          return false;
@@ -566,11 +527,7 @@ public final class WanXiangGuiStorage {
    }
 
    public static void deleteStorage(String var0, String var1) {
-      try {
-         Files.deleteIfExists(filePath(var0, var1));
-      } catch (IOException var3) {
-      }
-
+      KomutechPaths.deleteDoc(filePath(var0, var1).toFile());
    }
 
    public static void deletePlayerStorages(String var0) {
@@ -580,39 +537,10 @@ public final class WanXiangGuiStorage {
 
    }
 
+   /** 清空所有玩家的萬象匱存储（受 {@link #isClearAllowed()} 密码保护，调用方先校验）。 */
    public static void deleteAllStorages() {
-      try {
-         Path var0 = dataDir();
-         if (!Files.isDirectory(var0, new LinkOption[0])) {
-            return;
-         }
-
-         Stream<Path> var1 = Files.list(var0);
-
-         try {
-            var1.filter((var0x) -> Files.isRegularFile(var0x, new LinkOption[0])).filter((var0x) -> var0x.getFileName().toString().endsWith(".json")).forEach((var0x) -> {
-               try {
-                  Files.deleteIfExists(var0x);
-               } catch (IOException var2) {
-               }
-
-            });
-         } catch (Throwable var5) {
-            if (var1 != null) {
-               try {
-                  var1.close();
-               } catch (Throwable var4) {
-                  var5.addSuppressed(var4);
-               }
-            }
-
-            throw var5;
-         }
-
-         if (var1 != null) {
-            var1.close();
-         }
-      } catch (IOException var6) {
+      for (File var0 : KomutechPaths.listDocs(dataDir().toFile())) {
+         KomutechPaths.deleteDoc(var0);
       }
 
    }

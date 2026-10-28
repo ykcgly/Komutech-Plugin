@@ -1,7 +1,6 @@
 package tech.komutech.native_scripts.item;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -77,7 +76,9 @@ public final class ZeLingZhuScript implements NativeScript {
             }
 
             if (var6 != null && !var6.isEmpty()) {
-               if (Files.exists(KomutechPaths.playerAttributes().resolve("[" + var2.getName() + "].json"))) {
+               // 走 PlayerAttributeStore.exists 而不是自己拼路径：既统一走 SQLite 后端，
+               // 也用上 safeName 防目录穿越（原来这里是直接拼玩家名的裸路径）
+               if (PlayerAttributeStore.exists(var2.getName())) {
                   KomutechSupport.send(var2, "§c你已经鉴灵了，无法使用擇靈珠");
                   return null;
                } else {

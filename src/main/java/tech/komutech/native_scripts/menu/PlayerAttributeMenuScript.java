@@ -1,9 +1,9 @@
 package tech.komutech.native_scripts.menu;
 
-import java.io.IOException;
-import java.nio.file.Files;
+import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -32,6 +32,7 @@ import tech.komutech.native_scripts.support.KomutechChatInput;
 import tech.komutech.native_scripts.support.KomutechMenuHandler;
 import tech.komutech.native_scripts.support.KomutechMenuRouter;
 import tech.komutech.native_scripts.support.KomutechSupport;
+import tech.komutech.native_scripts.support.KomutechPaths;
 import tech.komutech.native_scripts.support.MenuGuiHelper;
 import tech.komutech.native_scripts.support.PlayerAttributeStore;
 import tech.komutech.native_scripts.NativeLifecycleScript;
@@ -299,27 +300,23 @@ public final class PlayerAttributeMenuScript implements NativeLifecycleScript, K
             } else {
                int var4x = 0;
 
-               try {
-                  Path var5x = PlayerAttributeStore.fileFor("x").getParent();
-                  if (Files.exists(var5x)) {
-                     try (Stream<Path> var6 = Files.list(var5x)) {
-                        for (Path var8 : var6.toList()) {
-                           String var9 = var8.getFileName().toString();
-                           if (var9.startsWith("[") && var9.endsWith("].json")) {
-                              String var10 = var9.substring(1, var9.length() - 6);
-                              Player var11 = Bukkit.getPlayer(var10);
-                              if (var11 != null && var11.isOnline()) {
-                                 AttributeApplier.clearSwitchable(var11);
-                                 KomutechSupport.send(var11, "§c你的玩家属性数据已被管理员重置。");
-                              }
+               // 走 listDocs：库里的键与盘上尚未入库的旧文件一起枚举，
+               // 只扫磁盘会漏掉「已迁进 SQLite、磁盘上已无文件」的存档
+               Path var5x = PlayerAttributeStore.fileFor("x").getParent();
 
-                              Files.deleteIfExists(var8);
-                              var4x++;
-                           }
-                        }
+               for (File var8 : KomutechPaths.listDocs(var5x.toFile())) {
+                  String var9 = var8.getName();
+                  if (var9.startsWith("[") && var9.endsWith("].json")) {
+                     String var10 = var9.substring(1, var9.length() - 6);
+                     Player var11 = Bukkit.getPlayer(var10);
+                     if (var11 != null && var11.isOnline()) {
+                        AttributeApplier.clearSwitchable(var11);
+                        KomutechSupport.send(var11, "§c你的玩家属性数据已被管理员重置。");
                      }
+
+                     KomutechPaths.deleteDoc(var8);
+                     var4x++;
                   }
-               } catch (IOException var14) {
                }
 
                KomutechSupport.send(var1, "§a已删除 " + var4x + " 个玩家数据。");
@@ -703,18 +700,16 @@ public final class PlayerAttributeMenuScript implements NativeLifecycleScript, K
       } else {
          ArrayList<String> var3 = new ArrayList<>();
 
-         try {
-            Path var4 = PlayerAttributeStore.fileFor("x").getParent();
-            if (Files.exists(var4)) {
-               try (Stream<Path> var5 = Files.list(var4)) {
-                  var5.filter(var0 -> {
-                     String var1x = var0.getFileName().toString();
-                     return var1x.startsWith("[") && var1x.endsWith("].json");
-                  }).sorted().forEach(var1x -> var3.add(var1x.getFileName().toString().replaceAll("^\\[|\\]\\.json$", "")));
-               }
+         Path var4 = PlayerAttributeStore.fileFor("x").getParent();
+
+         for (File var5 : KomutechPaths.listDocs(var4.toFile())) {
+            String var6x = var5.getName();
+            if (var6x.startsWith("[") && var6x.endsWith("].json")) {
+               var3.add(var6x.replaceAll("^\\[|\\]\\.json$", ""));
             }
-         } catch (IOException var15) {
          }
+
+         Collections.sort(var3);
 
          int var16 = ADMIN_SLOTS.length;
          int var17 = Math.max(1, (int)Math.ceil((double)var3.size() / var16));

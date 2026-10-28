@@ -11,6 +11,7 @@ import tech.komutech.listeners.SingleItemRecipeGuideListener;
 import tech.komutech.listeners.XuanTiePortalListener;
 import tech.komutech.native_scripts.NativeScriptRegistry;
 import tech.komutech.native_scripts.support.KomutechAdminPassword;
+import tech.komutech.util.Store;
 
 /**
  * 内容加载编排（对齐 WorldTaste 的 Setup）：
@@ -33,6 +34,9 @@ public final class Setup {
 
     public static void loadAll() {
         long t = System.currentTimeMillis();
+        // 玩家数据后端必须在任何内容加载之前就绪：加载期会有脚本读玩家存档，
+        // 而 Store.init() 内部还会把磁盘上的旧 JSON 一次性导入（首次启动）。
+        Store.init();
         MissingItems.reset();
         // 脚本单例必须在解析任何 script: 字段之前就绪（原实现在 onLoad 阶段 bootstrap）
         NativeScriptRegistry.bootstrap();

@@ -245,16 +245,17 @@ public final class YunZhuanXiaScript implements NativeLifecycleScript, KomutechM
       return var0;
    }
 
+   /** 读云篆匣（走 SQLite 文档库；库不可用时回落 JSON 文件）。 */
    private Map<String, Object> load(String var1) {
       try {
-         Path var2 = KomutechPaths.playerFile(KomutechPaths.yunZhuanXia(), var1, "云篆匣");
-         if (!Files.exists(var2)) {
+         Map<String, Object> var5 = KomutechPaths.readJson(
+                 KomutechPaths.playerFile(KomutechPaths.yunZhuanXia(), var1, "云篆匣").toFile());
+         if (var5 == null) {
             HashMap var6 = new HashMap();
             var6.put("卷轴数据", emptyScrolls());
             var6.put("熟练度记录", new HashMap());
             return var6;
          } else {
-            Map var5 = KomutechJson.asMap(KomutechJson.parse(Files.readString(var2, StandardCharsets.UTF_8)));
             ensureScrollList(var5);
             return var5;
          }
@@ -271,11 +272,8 @@ public final class YunZhuanXiaScript implements NativeLifecycleScript, KomutechM
    }
 
    private void save(String var1, Map<String, Object> var2) {
-      try {
-         Files.createDirectories(KomutechPaths.yunZhuanXia());
-         Files.writeString(KomutechPaths.playerFile(KomutechPaths.yunZhuanXia(), var1, "云篆匣"), KomutechJson.stringify(var2), StandardCharsets.UTF_8);
-      } catch (Exception var4) {
-      }
+      KomutechPaths.writeJson(
+              KomutechPaths.playerFile(KomutechPaths.yunZhuanXia(), var1, "云篆匣").toFile(), var2);
    }
 
    private ItemStack makeDisplayItem(String var1, int var2) {

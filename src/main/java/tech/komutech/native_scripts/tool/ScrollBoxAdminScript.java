@@ -249,22 +249,13 @@ public final class ScrollBoxAdminScript implements NativeLifecycleScript, Komute
    }
 
    private Map<String, Object> loadPlayerData(String var1) {
-      try {
-         Path var2 = KomutechPaths.playerFile(KomutechPaths.yunZhuanXia(), var1, "云篆匣");
-         return !Files.exists(var2) ? null : KomutechJson.asMap(KomutechJson.parse(Files.readString(var2, StandardCharsets.UTF_8)));
-      } catch (Exception var3) {
-         return null;
-      }
+      return KomutechPaths.readJson(
+              KomutechPaths.playerFile(KomutechPaths.yunZhuanXia(), var1, "云篆匣").toFile());
    }
 
    private boolean savePlayerData(String var1, Map<String, Object> var2) {
-      try {
-         Files.createDirectories(KomutechPaths.yunZhuanXia());
-         Files.writeString(KomutechPaths.playerFile(KomutechPaths.yunZhuanXia(), var1, "云篆匣"), KomutechJson.stringify(var2), StandardCharsets.UTF_8);
-         return true;
-      } catch (Exception var4) {
-         return false;
-      }
+      return KomutechPaths.writeJson(
+              KomutechPaths.playerFile(KomutechPaths.yunZhuanXia(), var1, "云篆匣").toFile(), var2);
    }
 
    private List<String> getScrollList(String var1) {

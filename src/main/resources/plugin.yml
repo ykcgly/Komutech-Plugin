@@ -5,3 +5,16 @@ api-version: 1.21
 description: 口木科技 —— 独立 Slimefun 附属（由 RSC 脚本版重构为原生 Java 加载）
 author: 口木科技
 softdepend: [Slimefun, JustEnoughGuide]
+commands:
+  km:
+    description: 口木科技数据管理（从 RSC 版导入玩家数据）
+    usage: /km import [--apply] [--source <目录>] [--only <命名空间,...>] [--overwrite]
+    permission: komutech.command.import
+    permission-message: §c你没有权限执行这个指令。
+permissions:
+  komutech.command.import:
+    description: 允许执行 /km import，把 RSC 版玩家数据导入 SQLite 文档库
+    default: op
+  komutech.admin:
+    description: 口木科技管理权限总闸
+    default: op

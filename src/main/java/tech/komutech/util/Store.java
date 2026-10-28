@@ -1,0 +1,512 @@
+package tech.komutech.util;
+
+import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
+import org.bukkit.Bukkit;
+import tech.komutech.KT;
+import tech.komutech.native_scripts.support.KomutechJson;
+import tech.komutech.native_scripts.support.KomutechPaths;
+
+/**
+ * 玩家数据文档库（SQLite）。
+ *
+ * <h2>模型：命名空间 + 键 → 一份 JSON 文档</h2>
+ * <p>旧实现把每个玩家的数据写成 {@code <数据根>/<命名空间>/<键>.json}
+ * （如 {@code 玩家属性/[玩家名].json}、{@code 萬象匱/[玩家名]<存储名>.json}）；
+ * 这里保留同样的语义，只是把「文件」换成「表里的一行」：</p>
+ * <pre>
+ * player_doc(ns TEXT, key TEXT, doc TEXT, updated_at INTEGER, PRIMARY KEY(ns, key))
+ * </pre>
+ * <p>业务代码不需要知道后端换了 —— {@link KomutechPaths#readJson} /
+ * {@link KomutechPaths#writeJson} 对玩家数据目录下的 JSON 会转到这里，
+ * 其余（数值配置、机器坐标绑定、{@code .txt} 标记）仍是真实文件。</p>
+ *
+ * <h2>键为什么用玩家名而不是 UUID</h2>
+ * <p>口木科技运行期一律按玩家名取档（{@code PlayerAttributeStore.fileFor}、
+ * 萬象匱/纳戒/云篆匣 的 {@code playerFile}），导入时若改成 UUID 键，
+ * 导进来的数据运行期反而读不到。因此这里<b>保持与原文件名完全一致的键</b>。</p>
+ *
+ * <h2>旧档迁移</h2>
+ * <p>首次启动（{@code app_meta} 里没有 {@code legacy_json_import} 标记）会把数据根下的
+ * 所有 JSON 一次性导入，已存在的键不覆盖；单条读取时若库里没有而文件在，也会顺手导入。
+ * 也就是说：<b>玩家数据只可能从文件迁到库里，不会反过来丢数据</b>。
+ * 手动重跑用 {@code /km import}。</p>
+ *
+ * <h2>降级</h2>
+ * <p>{@link Sqlite} 打不开（驱动缺失 / 冷门平台原生库加载失败 / 目录不可写）时，
+ * {@link #available()} 恒 false，调用方全部回落文件后端，功能不受影响。</p>
+ */
+public final class Store {
+
+    private Store() {}
+
+    /** 玩家数据文档表。 */
+    private static final String TABLE = "player_doc";
+
+    /** 键值元数据表（迁移标记、库结构版本）。 */
+    private static final String META = "app_meta";
+
+    /** 旧文件导入完成的标记。 */
+    private static final String META_LEGACY = "legacy_json_import";
+
+    private static boolean schemaReady;
+
+    // ==================================================================
+    // 写后缓存：save() 先进内存，每 5 分钟由定时任务统一落库
+    // ==================================================================
+
+    /**
+     * 待落库的文档（组合键 {@code ns + '\u0000' + key} → 序列化后的 JSON）。
+     *
+     * <p>高频写入不再逐条打 SQLite，而是先攒在这里；每 5 分钟由 {@link #flush()}
+     * 一次性写库。内存里的最新值对本进程的读取永远可见（{@link #load}/{@link #exists}
+     * 都先查这里），所以业务逻辑感知不到延迟。</p>
+     *
+     * <p><b>代价</b>：服务器进程被强杀 / 崩溃时最多丢最近 5 分钟的进度；
+     * 正常停服走 {@link #shutdown()} 会先落库再关。组合键用 {@code '\u0000'} 分隔
+     * —— 命名空间与键都是目录名 / 文件名，不可能含 NUL。</p>
+     */
+    private static final ConcurrentHashMap<String, String> PENDING = new ConcurrentHashMap<>();
+
+    /** 落库周期：5 分钟 = 6000 刻。 */
+    private static final long FLUSH_PERIOD_TICKS = 6000L;
+
+    /** 防止定时任务与停服同时 flush 造成重复写。 */
+    private static final Object FLUSH_LOCK = new Object();
+
+    // ==================================================================
+    // 生命周期
+    // ==================================================================
+
+    /**
+     * 打开数据库并建表；随后尝试把旧 JSON 一次性导入。
+     *
+     * <p>由 {@code Setup#loadAll()} 在所有内容加载<b>之前</b>调用 —— 加载期有些脚本会读玩家数据。</p>
+     */
+    public static void init() {
+        try {
+            File db = databaseFile();
+            if (!Sqlite.open(db)) return;
+            if (!ensureSchema()) return;
+            schemaReady = true;
+            KT.log("[存储] SQLite 就绪: " + db.getAbsolutePath());
+            autoImportLegacyOnce();
+            startFlushTask();
+        } catch (Throwable t) {
+            KT.log("[存储] 初始化失败，回落文件存储: " + t);
+        }
+    }
+
+    /** 启动「每 5 分钟落库一次」的异步定时任务。 */
+    private static void startFlushTask() {
+        try {
+            if (KT.plugin() == null) return;
+            Bukkit.getScheduler().runTaskTimerAsynchronously(KT.plugin(), () -> {
+                try {
+                    int n = flush();
+                    KT.log("[存储] 定时保存完成：写入 " + n + " 份文档" + (n == 0 ? "（无变更）" : ""));
+                } catch (Throwable t) {
+                    KT.log("[存储] 定时保存失败（文档仍在缓存中，下个周期重试）: " + t);
+                }
+            }, FLUSH_PERIOD_TICKS, FLUSH_PERIOD_TICKS);
+        } catch (Throwable t) {
+            KT.log("[存储] 定时保存任务启动失败（改为每次写都直接落库）: " + t);
+        }
+    }
+
+    /**
+     * 把缓存里的待写文档一次性落库。
+     *
+     * @return 实际写入的文档数
+     */
+    public static int flush() {
+        if (!available() || PENDING.isEmpty()) return 0;
+        synchronized (FLUSH_LOCK) {
+            if (PENDING.isEmpty()) return 0;
+            int n = 0;
+            long now = System.currentTimeMillis();
+            for (Map.Entry<String, String> e : PENDING.entrySet()) {
+                int sep = e.getKey().indexOf('\u0000');
+                if (sep <= 0) {
+                    PENDING.remove(e.getKey());
+                    continue;
+                }
+                String ns = e.getKey().substring(0, sep);
+                String key = e.getKey().substring(sep + 1);
+                int r = Sqlite.exec("INSERT INTO " + TABLE + " (ns, key, doc, updated_at) "
+                                + "VALUES (?,?,?,?) ON CONFLICT(ns, key) DO UPDATE "
+                                + "SET doc=excluded.doc, updated_at=excluded.updated_at",
+                        ns, key, e.getValue(), now);
+                if (r >= 0) {
+                    // 只在文档仍是这一版时移除：flush 期间又写了一笔的话，留给下一轮
+                    PENDING.remove(e.getKey(), e.getValue());
+                    n++;
+                }
+            }
+            return n;
+        }
+    }
+
+    /** 卸载时先落库再关库。 */
+    public static void shutdown() {
+        try {
+            flush();
+        } catch (Throwable ignored) {
+            // 关闭阶段尽力而为
+        }
+        schemaReady = false;
+        Sqlite.close();
+    }
+
+    /** 库是否可用（false → 调用方必须走文件后端）。 */
+    public static boolean available() {
+        return schemaReady && Sqlite.available();
+    }
+
+    /** 数据库文件：{@code plugins/Komutech/data/komutech.db}。 */
+    public static File databaseFile() {
+        return new File(KomutechPaths.configRoot(), "data/komutech.db");
+    }
+
+    private static boolean ensureSchema() {
+        Boolean ok = Sqlite.within(c -> {
+            try (java.sql.Statement st = c.createStatement()) {
+                st.execute("CREATE TABLE IF NOT EXISTS " + TABLE + " ("
+                        + "ns TEXT NOT NULL,"
+                        + "key TEXT NOT NULL,"
+                        + "doc TEXT NOT NULL,"
+                        + "updated_at INTEGER NOT NULL,"
+                        + "PRIMARY KEY (ns, key))");
+                st.execute("CREATE INDEX IF NOT EXISTS idx_" + TABLE + "_ns ON " + TABLE + "(ns)");
+                st.execute("CREATE TABLE IF NOT EXISTS " + META + " ("
+                        + "k TEXT PRIMARY KEY, v TEXT)");
+            }
+            return Boolean.TRUE;
+        }, Boolean.FALSE);
+        return Boolean.TRUE.equals(ok);
+    }
+
+    // ==================================================================
+    // 文档读写
+    // ==================================================================
+
+    /** 读一份文档；不存在或解析失败返回 null。 */
+    @SuppressWarnings("unchecked")
+    public static Map<String, Object> load(String ns, String key) {
+        if (!available() || ns == null || key == null) return null;
+        // 先查写后缓存：save() 之后、flush() 之前，读取必须看到最新值
+        String pending = PENDING.get(pendingKey(ns, key));
+        if (pending != null) {
+            try {
+                Object parsed = KomutechJson.parse(pending);
+                if (parsed instanceof Map<?, ?> m) return (Map<String, Object>) m;
+            } catch (Throwable ignored) {
+                // 缓存坏了就回落查库
+            }
+        }
+        String text = Sqlite.select("SELECT doc FROM " + TABLE + " WHERE ns=? AND key=?",
+                rs -> rs.next() ? rs.getString(1) : null, null, ns, key);
+        if (text == null || text.isBlank()) return null;
+        try {
+            Object parsed = KomutechJson.parse(text);
+            if (parsed instanceof Map<?, ?> m) return (Map<String, Object>) m;
+            // 旧档里极少见（顶层数组）→ 包一层，保证读取方拿到的仍是对象
+            Map<String, Object> wrapped = new LinkedHashMap<>();
+            wrapped.put("value", parsed);
+            return wrapped;
+        } catch (Throwable t) {
+            KT.log("[存储] 文档解析失败 " + ns + "/" + key + ": " + t);
+            return null;
+        }
+    }
+
+    /**
+     * 读一份文档的<b>原始结构</b>（顶层可能是对象也可能是数组）。
+     *
+     * <p>纳戒存的是 {@code ["base64", ...]}（顶层是 JSON 数组），用 {@link #load}
+     * 会被强行包成 {@code {"value": ...}} 从而破坏结构，所以这里保留 parse 后的原样。</p>
+     */
+    public static Object loadAny(String ns, String key) {
+        if (!available() || ns == null || key == null) return null;
+        String pending = PENDING.get(pendingKey(ns, key));
+        if (pending != null) {
+            try {
+                return KomutechJson.parse(pending);
+            } catch (Throwable ignored) {
+                // 缓存坏了就回落查库
+            }
+        }
+        String text = Sqlite.select("SELECT doc FROM " + TABLE + " WHERE ns=? AND key=?",
+                rs -> rs.next() ? rs.getString(1) : null, null, ns, key);
+        if (text == null || text.isBlank()) return null;
+        try {
+            return KomutechJson.parse(text);
+        } catch (Throwable t) {
+            KT.log("[存储] 文档解析失败 " + ns + "/" + key + ": " + t);
+            return null;
+        }
+    }
+
+    /**
+     * 写一份文档。
+     *
+     * <p><b>写后缓存语义</b>：只进内存（{@link #PENDING}），由每 5 分钟的定时任务
+     * {@link #flush()} 统一落库；本进程的读取即时可见（{@link #load} 先查缓存）。
+     * 返回 true 表示「已安全接下这份文档」，不代表已写盘。</p>
+     */
+    public static boolean save(String ns, String key, Object doc) {
+        if (!available() || ns == null || key == null) return false;
+        String text;
+        try {
+            text = KomutechJson.stringify(doc == null ? new LinkedHashMap<>() : doc);
+        } catch (Throwable t) {
+            KT.log("[存储] 文档序列化失败 " + ns + "/" + key + ": " + t);
+            return false;
+        }
+        PENDING.put(pendingKey(ns, key), text);
+        return true;
+    }
+
+    /** 删一份文档（缓存里的待写版本一并作废）。 */
+    public static boolean delete(String ns, String key) {
+        if (!available() || ns == null || key == null) return false;
+        PENDING.remove(pendingKey(ns, key));
+        return Sqlite.exec("DELETE FROM " + TABLE + " WHERE ns=? AND key=?", ns, key) >= 0;
+    }
+
+    /** 文档是否存在（含缓存中尚未落库的）。 */
+    public static boolean exists(String ns, String key) {
+        if (!available() || ns == null || key == null) return false;
+        if (PENDING.containsKey(pendingKey(ns, key))) return true;
+        Integer one = Sqlite.select("SELECT 1 FROM " + TABLE + " WHERE ns=? AND key=? LIMIT 1",
+                rs -> rs.next() ? 1 : 0, 0, ns, key);
+        return one != null && one == 1;
+    }
+
+    /** 某命名空间下的全部键（字典序）。先落库，保证统计看到的是全量。 */
+    public static List<String> keys(String ns) {
+        flush();
+        List<String> out = Sqlite.select("SELECT key FROM " + TABLE + " WHERE ns=? ORDER BY key",
+                rs -> {
+                    List<String> list = new ArrayList<>();
+                    while (rs.next()) list.add(rs.getString(1));
+                    return list;
+                }, new ArrayList<>(), ns);
+        return out == null ? new ArrayList<>() : out;
+    }
+
+    /** 某命名空间的文档数。 */
+    public static int count(String ns) {
+        flush();
+        Integer n = Sqlite.select("SELECT COUNT(*) FROM " + TABLE + " WHERE ns=?",
+                rs -> rs.next() ? rs.getInt(1) : 0, 0, ns);
+        return n == null ? 0 : n;
+    }
+
+    /** 某份文档的最后写入时间（毫秒）；不存在返回 0。 */
+    public static long updatedAt(String ns, String key) {
+        Long v = Sqlite.select("SELECT updated_at FROM " + TABLE + " WHERE ns=? AND key=?",
+                rs -> rs.next() ? rs.getLong(1) : 0L, 0L, ns, key);
+        return v == null ? 0L : v;
+    }
+
+    /** 全部命名空间（按文档数降序）。 */
+    public static Map<String, Integer> namespaces() {
+        flush();
+        Map<String, Integer> out = Sqlite.select(
+                "SELECT ns, COUNT(*) FROM " + TABLE + " GROUP BY ns ORDER BY COUNT(*) DESC",
+                rs -> {
+                    Map<String, Integer> m = new LinkedHashMap<>();
+                    while (rs.next()) m.put(rs.getString(1), rs.getInt(2));
+                    return m;
+                }, new LinkedHashMap<>());
+        return out == null ? new LinkedHashMap<>() : out;
+    }
+
+    // ==================================================================
+    // 元数据
+    // ==================================================================
+
+    /** 读一项元数据；不存在返回 null。 */
+    public static String meta(String k) {
+        if (!available()) return null;
+        return Sqlite.select("SELECT v FROM " + META + " WHERE k=?",
+                rs -> rs.next() ? rs.getString(1) : null, null, k);
+    }
+
+    /** 写一项元数据。 */
+    public static void setMeta(String k, String v) {
+        if (!available()) return;
+        Sqlite.exec("INSERT INTO " + META + " (k, v) VALUES (?,?) "
+                + "ON CONFLICT(k) DO UPDATE SET v=excluded.v", k, v);
+    }
+
+    // ==================================================================
+    // 旧 JSON 导入（/km import 与首次启动共用）
+    // ==================================================================
+
+    /**
+     * 导入结果。
+     *
+     * @param dryRun      是不是预览（true 时什么都没写）
+     * @param perNs       命名空间 → <b>扫到的文件数</b>（含跳过的；没用 --only 时这就是
+     *                    源目录里该命名空间的全部玩家档数）
+     * @param created     新建的文档数
+     * @param overwritten 覆盖的文档数
+     * @param skipped     库里已有、本次跳过的文档数
+     * @param failed      解析/写入失败的文档数
+     * @param samples     每个命名空间挑 1 个键做样例（最多 12 条）
+     */
+    public record ImportReport(boolean dryRun, Map<String, Integer> perNs,
+                               int created, int overwritten, int skipped, int failed,
+                               List<String> samples) {
+
+        public int total() {
+            return created + overwritten + skipped + failed;
+        }
+
+        /** 面向指令输出的一行摘要。 */
+        public String summary() {
+            return (dryRun ? "预览" : "导入完成") + "：共 " + total() + " 份（新建 " + created
+                    + " / 覆盖 " + overwritten + " / 跳过·库内已有 " + skipped
+                    + " / 失败 " + failed + "）";
+        }
+    }
+
+    /** 首次启动自动导入（只填空缺，不覆盖已有）。 */
+    private static void autoImportLegacyOnce() {
+        try {
+            if (meta(META_LEGACY) != null) return;
+            File root = KomutechPaths.dataRoot().toFile();
+            if (root == null || !root.isDirectory()) {
+                setMeta(META_LEGACY, "skip:no-legacy-dir");
+                return;
+            }
+            ImportReport rep = importLegacy(root, null, false, false);
+            if (rep.total() == 0) {
+                setMeta(META_LEGACY, "skip:no-file");
+                return;
+            }
+            // 导入的文档此刻还在写后缓存里：先落库再写标记，
+            // 否则启动后立刻崩溃会导致「标记已打、数据没进库」且不再重导。
+            flush();
+            setMeta(META_LEGACY, "done:" + rep.created() + "/" + rep.skipped() + "/" + rep.failed());
+            KT.log("[存储] 旧 JSON 导入 " + rep.summary());
+            for (Map.Entry<String, Integer> e : rep.perNs().entrySet()) {
+                KT.log("[存储]   " + e.getKey() + " ← " + e.getValue() + " 份");
+            }
+            if (rep.failed() > 0) {
+                KT.log("[存储] 有 " + rep.failed() + " 份文件解析失败，仍按文件后端保留（未删除）");
+            }
+        } catch (Throwable t) {
+            KT.log("[存储] 旧 JSON 自动导入失败（不影响运行，可稍后用 /km import 重跑）: " + t);
+        }
+    }
+
+    /**
+     * 从旧目录导入玩家数据。
+     *
+     * @param root      旧数据根目录（结构须为 {@code <命名空间>/<键>.json}）
+     * @param onlyNs    只导这些命名空间；null / 空 = 全部
+     * @param overwrite 库里已有同键时是否覆盖
+     * @param dryRun    true = 只统计不写库
+     */
+    public static ImportReport importLegacy(File root, Collection<String> onlyNs,
+                                            boolean overwrite, boolean dryRun) {
+        Map<String, Integer> perNs = new TreeMap<>();
+        List<String> samples = new ArrayList<>();
+        int created = 0, overwritten = 0, skipped = 0, failed = 0;
+        if (root == null || !root.isDirectory()) {
+            return new ImportReport(dryRun, perNs, 0, 0, 0, 0, samples);
+        }
+        File[] dirs = root.listFiles(File::isDirectory);
+        if (dirs == null) return new ImportReport(dryRun, perNs, 0, 0, 0, 0, samples);
+        for (File dir : dirs) {
+            String ns = dir.getName();
+            if (onlyNs != null && !onlyNs.isEmpty() && !onlyNs.contains(ns)) continue;
+            File[] files = dir.listFiles((d, n) -> n.toLowerCase(Locale.ROOT).endsWith(".json"));
+            if (files == null || files.length == 0) continue;
+            for (File f : files) {
+                String key = f.getName().substring(0, f.getName().length() - 5);
+                if (key.isEmpty()) continue;
+                try {
+                    boolean exists = available() && exists(ns, key);
+                    if (exists && !overwrite) {
+                        skipped++;
+                        // 记「扫到了几个文件」而不是 0 —— 否则报告里 ×0 看起来像没扫到，
+                        // 用户会误以为「数据没被导入」（糖然 2026-10-27 实测踩过）
+                        perNs.merge(ns, 1, Integer::sum);
+                        continue;
+                    }
+                    // 顶层可能是对象（玩家属性/云篆匣/萬象匱）也可能是数组（纳戒存的是
+                    // Base64 字符串数组）—— 只认对象会把纳戒整类判成「解析失败」
+                    Object doc = readAnyJsonFile(f);
+                    if (doc == null) {
+                        failed++;
+                        continue;
+                    }
+                    if (!dryRun && available()) {
+                        if (!save(ns, key, doc)) {
+                            failed++;
+                            continue;
+                        }
+                    }
+                    if (exists) overwritten++;
+                    else created++;
+                    perNs.merge(ns, 1, Integer::sum);
+                    if (samples.size() < 12) {
+                        String line = ns + "/" + key;
+                        if (!samples.contains(line)) samples.add(line);
+                    }
+                } catch (Throwable t) {
+                    failed++;
+                }
+            }
+        }
+        return new ImportReport(dryRun, perNs, created, overwritten, skipped, failed, samples);
+    }
+
+    /** 读一个真实 JSON 文件（导入用；不经过 {@link KomutechPaths} 以免被拦回库里）。 */
+    public static Map<String, Object> readJsonFile(File file) {
+        try {
+            if (file == null || !file.isFile()) return null;
+            String text = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
+            if (text.isBlank()) return null;
+            Object parsed = KomutechJson.parse(text);
+            if (!(parsed instanceof Map<?, ?> m)) return null;
+            return new LinkedHashMap<>((Map<String, Object>) m);
+        } catch (Throwable t) {
+            return null;
+        }
+    }
+
+    /**
+     * 读一个真实 JSON 文件并保留原始结构（顶层对象或数组都接受）。
+     *
+     * <p>纳戒存档是 {@code ["base64", ...]}，用 {@link #readJsonFile} 会被判成解析失败，
+     * 所以导入必须用这个入口。</p>
+     */
+    public static Object readAnyJsonFile(File file) {
+        try {
+            if (file == null || !file.isFile()) return null;
+            String text = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
+            return text.isBlank() ? null : KomutechJson.parse(text);
+        } catch (Throwable t) {
+            return null;
+        }
+    }
+
+    /** 写后缓存的组合键。 */
+    private static String pendingKey(String ns, String key) {
+        return ns + "\u0000" + key;
+    }
+}

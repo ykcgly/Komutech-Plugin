@@ -549,15 +549,11 @@ public final class ScrollCombatEngine {
       }
    }
 
+   /** 读云篆匣存档（走 SQLite 文档库；库不可用时回落 JSON 文件）。 */
    private static Map<String, Object> loadScrollData(String var0) {
-      try {
-         Path var1 = KomutechPaths.playerFile(scrollDataDir(), var0, "云篆匣");
-         return (Map<String, Object>)(!Files.exists(var1)
-            ? new HashMap<>()
-            : KomutechJson.asMap(KomutechJson.parse(Files.readString(var1, StandardCharsets.UTF_8))));
-      } catch (IOException var2) {
-         return new HashMap<>();
-      }
+      Map<String, Object> var1 = KomutechPaths.readJson(
+              KomutechPaths.playerFile(scrollDataDir(), var0, "云篆匣").toFile());
+      return var1 == null ? new HashMap<>() : var1;
    }
 
    private static int getProficiency(String var0, String var1) {
@@ -576,13 +572,8 @@ public final class ScrollCombatEngine {
       } else {
          var5.put(var1, var6 + var7);
          var4.put("熟练度记录", var5);
-
-         try {
-            Files.createDirectories(scrollDataDir());
-            Files.writeString(KomutechPaths.playerFile(scrollDataDir(), var0, "云篆匣"), KomutechJson.stringify(var4), StandardCharsets.UTF_8);
-         } catch (IOException var9) {
-         }
-
+         KomutechPaths.writeJson(
+                 KomutechPaths.playerFile(scrollDataDir(), var0, "云篆匣").toFile(), var4);
          return var7;
       }
    }

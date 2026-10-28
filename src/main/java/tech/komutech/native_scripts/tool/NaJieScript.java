@@ -115,14 +115,9 @@ public final class NaJieScript implements NativeLifecycleScript, KomutechMenuHan
          }
 
          Path var7 = this.file(var1);
-         String var8 = KomutechJson.stringify(var3);
-         KomutechAsyncScheduler.submit(() -> {
-            try {
-               Files.createDirectories(KomutechPaths.naJie());
-               Files.writeString(var7, var8, StandardCharsets.UTF_8);
-            } catch (Exception var3x) {
-            }
-         }, var0 -> {});
+         // 传原始 List 而不是 stringify 后的文本：writeJson 会自己序列化，
+         // 传字符串会被再包一层引号，读出来就不是数组了
+         KomutechAsyncScheduler.submit(() -> KomutechPaths.writeJson(var7.toFile(), var3), var0 -> {});
       } catch (Exception var6) {
       }
    }
@@ -131,13 +126,13 @@ public final class NaJieScript implements NativeLifecycleScript, KomutechMenuHan
       return KomutechPaths.playerFile(KomutechPaths.naJie(), var1.getName(), "纳戒");
    }
 
+   /** 纳戒存档顶层是 JSON 数组，走 {@link KomutechPaths#readAny} 保留原结构。 */
    private List<String> load(Player var1) {
       try {
-         Path var2 = this.file(var1);
-         if (!Files.exists(var2)) {
+         Object var3 = KomutechPaths.readAny(this.file(var1).toFile());
+         if (var3 == null) {
             return null;
          } else {
-            Object var3 = KomutechJson.parse(Files.readString(var2, StandardCharsets.UTF_8));
             return KomutechJson.asList(var3).stream().map(String::valueOf).toList();
          }
       } catch (Exception var4) {

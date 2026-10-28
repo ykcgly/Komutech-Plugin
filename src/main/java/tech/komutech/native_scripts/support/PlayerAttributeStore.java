@@ -1,13 +1,11 @@
 package tech.komutech.native_scripts.support;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import tech.komutech.util.Store;
 
 public final class PlayerAttributeStore {
    private static final Pattern LINGLI_PATTERN = Pattern.compile("^(\\d+(?:\\.\\d+)?)\\s*/\\s*(\\d+(?:\\.\\d+)?|無|无)\\s*(?:\\+\\s*(-?\\d+(?:\\.\\d+)?))?$");
@@ -23,41 +21,34 @@ public final class PlayerAttributeStore {
       return KomutechPaths.safeResolve(dataDir(), "[" + KomutechPaths.safeName(var0) + "].json");
    }
 
+   /**
+    * 玩家属性是否有存档。
+    *
+    * <p>走 {@link KomutechPaths#docExists}：库里查不到时仍会看一眼磁盘上的旧 JSON，
+    * 所以「升级到 SQLite 但还没导入」的空档期不会误判为没有存档。</p>
+    */
    public static boolean exists(String var0) {
-      return Files.exists(fileFor(var0));
+      return KomutechPaths.docExists(fileFor(var0).toFile());
    }
 
+   /**
+    * 读一份玩家属性。
+    *
+    * <p>后端优先 SQLite（{@link Store}），库里没有时回落同名 JSON 文件并顺手入库；
+    * 两边都没有才返回 null。</p>
+    */
    public static Map<String, Object> load(String var0) {
-      Path var1 = fileFor(var0);
-      if (!Files.exists(var1)) {
-         return null;
-      } else {
-         try {
-            String var2 = Files.readString(var1, StandardCharsets.UTF_8);
-            return KomutechJson.asMap(KomutechJson.parse(var2));
-         } catch (RuntimeException | IOException var3) {
-            return null;
-         }
-      }
+      return KomutechPaths.readJson(fileFor(var0).toFile());
    }
 
+   /** 写一份玩家属性（进 SQLite 文档库；库不可用时回落文件）。 */
    public static boolean save(String var0, Map<String, Object> var1) {
-      try {
-         Path var2 = fileFor(var0);
-         Files.createDirectories(var2.getParent());
-         Files.writeString(var2, prettyJson(var1), StandardCharsets.UTF_8);
-         return true;
-      } catch (IOException var3) {
-         return false;
-      }
+      return KomutechPaths.writeJson(fileFor(var0).toFile(), var1);
    }
 
+   /** 删一份玩家属性（库与磁盘上的同名文件一并处理）。 */
    public static boolean delete(String var0) {
-      try {
-         return Files.deleteIfExists(fileFor(var0));
-      } catch (IOException var2) {
-         return false;
-      }
+      return KomutechPaths.deleteDoc(fileFor(var0).toFile());
    }
 
    public static Map<String, Object> deepCopy(Map<String, Object> var0) {

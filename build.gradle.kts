@@ -29,6 +29,13 @@ dependencies {
     compileOnly(files("libs/Slimefun4-347d926-Beta.jar"))
     // JEG（JustEnoughGuide）软依赖
     compileOnly(files("libs/JEG.jar"))
+    // SQLite JDBC：服务端不提供驱动，必须自带 → 打进产物（运行期用 DriverManager 连库）。
+    // slf4j 由服务端提供（Paper 自带 2.x），不打进产物以免与平台日志实现冲突。
+    // 注意：上面三个依赖都是 compileOnly，不在 runtimeClasspath 里，
+    // 所以 jar 任务的 zipTree 只会带上 sqlite-jdbc，不会把 Slimefun / paper-api 也塞进产物。
+    implementation("org.xerial:sqlite-jdbc:3.47.1.0") {
+        exclude(group = "org.slf4j")
+    }
 }
 
 configurations.compileClasspath {
@@ -61,6 +68,27 @@ tasks.jar {
     archiveBaseName.set("Komutech")
     archiveVersion.set(project.version.toString())
     archiveClassifier.set("")
+    // 打进 sqlite-jdbc 后，插件自身资源与驱动 jar 会撞 MANIFEST 等条目
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    // 把 sqlite-jdbc 的类与原生库打进产物（服务端不会提供 SQLite 驱动）。
+    // 原生库每个平台约 0.6 MB，这里只保留常见服务端/开发平台，冷门平台靠
+    // Store 的降级路径（驱动起不来就回落文件存储）兜底。
+    from({ configurations.runtimeClasspath.get().map { zipTree(it) } })
+    exclude(
+        "org/sqlite/native/Linux-Android/**",
+        "org/sqlite/native/FreeBSD/**",
+        "org/sqlite/native/Linux/arm/**",
+        "org/sqlite/native/Linux/armv7/**",
+        "org/sqlite/native/Linux/ppc64/**",
+        "org/sqlite/native/Linux/riscv64/**",
+        "org/sqlite/native/Linux/x86/**",
+        "org/sqlite/native/Linux-Musl/x86/**",
+        "org/sqlite/native/Windows/aarch64/**",
+        "META-INF/maven/**",
+        "META-INF/LICENSE*",
+        "META-INF/NOTICE*"
+    )
 }
 
 tasks.build {
