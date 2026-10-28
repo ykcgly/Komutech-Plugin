@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "tech.komutech"
-version = "3.0.2-standalone"
+version = "3.0.3-standalone"
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(21))

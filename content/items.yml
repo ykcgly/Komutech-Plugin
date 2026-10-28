@@ -19,7 +19,7 @@ Komutech_JZ_XX_BB:
     name: '&e版本号'
     lore:
       - '&f当前口木科技版本：'
-      - '{#FFC1E0}Release-3.0.2'
+      - '{#FFC1E0}Release-3.0.3'
     material_type: mc
     material: PAPER
     amount: 1
